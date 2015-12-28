@@ -1,0 +1,19 @@
+<div ng-app="loginApp" ng-controller="LoginCtrl">
+  <div class="container">
+    <div class="signin">
+      <form>
+        <h2>店家後台</h2>
+        <input id="username" name="username" type="text"
+          class="form-control" maxlength="50" placeholder="帳號" autofocus>
+        <input id="password" name="password" type="password"
+          class="form-control" maxlength="50" placeholder="密碼">
+        <button class="btn btn-danger btn-block">登入</button>
+        <!-- <div ng-if="isLoginFail">登入不成功。請檢查帳號密碼。</div> -->
+        <!-- <div ng-if="isInvalid">無此帳號，或帳號已失效。</div> -->
+      </form>
+      <div class="forget-pwd">
+      <u>忘記密碼?</u>
+    </div>
+    </div>
+  </div>
+</div>
