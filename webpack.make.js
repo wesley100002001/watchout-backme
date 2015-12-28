@@ -32,7 +32,7 @@ module.exports = function makeWebpackConfig (options) {
     config.entry = {}
   } else {
     config.entry = {
-      app: './client/app.js'
+      app: './src/app.js'
     }
   }
 
@@ -184,7 +184,7 @@ module.exports = function makeWebpackConfig (options) {
     // Render index.html
     config.plugins.push(
       new HtmlWebpackPlugin({
-        template: './client/index.html',
+        template: './src/index.html',
         inject: 'body',
         minify: BUILD
       })
