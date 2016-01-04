@@ -1,10 +1,10 @@
-import './login.css';
+import './site.less';
 
 import angular from 'angular';
 import uirouter from 'angular-ui-router';
 
 import routing from './site.routes';
-import LoginController from './site.controller';
+import SiteController from './site.controller';
 
 export default angular.module('app.site', [uirouter])
   .config(routing)
