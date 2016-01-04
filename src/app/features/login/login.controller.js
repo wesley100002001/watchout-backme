@@ -1,11 +1,21 @@
 export default class LoginController {
-  constructor(randomNames) {
+  constructor(randomNames, $state) {
+    // Mock user
+    this.user = {
+      username: 'admin',
+      password: '1234'
+    };
     this.random = randomNames;
-    this.name = 'World';
+    this.state = $state;
   }
 
-  changeName() {
-    this.name = 'angular-tips';
+  verifyUser() {
+    if (this.username === this.user.username && this.password === this.user.password) {
+      // XXX: should go somewhere else
+      this.state.go('home');
+    } else {
+      this.isLoginFail = true;
+    }
   }
 
   randomName() {
@@ -13,4 +23,4 @@ export default class LoginController {
   }
 }
 
-LoginController.$inject = ['randomNames'];
+LoginController.$inject = ['randomNames', '$state'];
