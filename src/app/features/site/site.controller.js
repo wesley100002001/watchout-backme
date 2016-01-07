@@ -1,12 +1,12 @@
 export default class SiteController {
-  constructor($state, $cookies) {
+  constructor($state, $cookies, acl) {
     this.state = $state;
     this.cookies = $cookies;
 
-    if (this.cookies.get('status') !== 'user') {
+    if (!acl.checkStatus(this.cookies.get('status'))) {
       this.state.go('login');
     }
   }
 }
 
-SiteController.$inject = ['$state', '$cookies'];
+SiteController.$inject = ['$state', '$cookies', 'acl'];
