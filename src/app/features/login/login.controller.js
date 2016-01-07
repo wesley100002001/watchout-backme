@@ -1,11 +1,10 @@
 export default class LoginController {
-  constructor(randomNames, $state, $cookies, acl) {
+  constructor($state, $cookies, acl) {
     // Mock user
     this.user = {
       username: 'admin',
       password: '1234'
     };
-    this.random = randomNames;
     this.state = $state;
     this.cookies = $cookies;
 
@@ -22,10 +21,6 @@ export default class LoginController {
       this.isLoginFail = true;
     }
   }
-
-  randomName() {
-    this.name = this.random.getName();
-  }
 }
 
-LoginController.$inject = ['randomNames', '$state', '$cookies', 'acl'];
+LoginController.$inject = ['$state', '$cookies', 'acl'];
