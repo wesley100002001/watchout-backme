@@ -6,12 +6,13 @@
   <base href="/">
 </head>
 <body ng-contoller="MainController">
-  <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
+  <div class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
         <a class="navbar-brand" ui-sref="login">4FRee</a>
-        <ul class="nav nav-tabs">
-
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
         <!-- Here you can see ui-sref in action again. Also notice the use of $state.includes, which
              will set the links to 'active' if, for example on the first link, 'contacts' or any of
              its descendant states are activated. -->
@@ -23,13 +24,9 @@
           <li ui-sref-active="active"><a ui-sref="analytic">統計報表</a></li>
           <li ui-sref-active="active"><a ui-sref="vip">本店常客</a></li>
         </ul>
-
-        <!-- Here is a named ui-view. ui-views don't have to be named, but we'll populate this
-             one from various different child states and we want a name to help us target. -->
-        <!-- <p ui-view="hint" class="navbar-text pull-right"></p> -->
-        <ui-view></ui-view>
       </div>
     </div>
   </div>
+  <ui-view></ui-view>
 </body>
 </html>
