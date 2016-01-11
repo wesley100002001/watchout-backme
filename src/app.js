@@ -7,7 +7,8 @@ import ngCookies from 'angular-cookies';
 import routing from './app.config';
 import login from './app/features/login';
 import site from './app/features/site';
+import activity from './app/features/activity'
 import attraction from './app/features/attraction';
 
-angular.module('app', [uirouter, ngCookies, login, site, attraction])
+angular.module('app', [uirouter, ngCookies, login, site, activity, attraction])
   .config(routing);
