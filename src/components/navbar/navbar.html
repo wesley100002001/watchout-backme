@@ -1,0 +1,23 @@
+<div class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" ui-sref="login">
+        <img src="{{logoSrc}}">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+      <!-- Here you can see ui-sref in action again. Also notice the use of $state.includes, which
+           will set the links to 'active' if, for example on the first link, 'contacts' or any of
+           its descendant states are activated. -->
+        <li ui-sref-active="active"><a ui-sref="site">店家管理</a></li>
+        <li ui-sref-active="active"><a ui-sref="coupon">優惠</a></li>
+        <li ui-sref-active="active"><a ui-sref="advertisement">廣告</a></li>
+        <li ui-sref-active="active"><a ui-sref="attraction">景點</a></li>
+        <li ui-sref-active="active"><a ui-sref="activity">活動</a></li>
+        <li ui-sref-active="active"><a ui-sref="analytic">統計報表</a></li>
+        <li ui-sref-active="active"><a ui-sref="vip">本店常客</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
