@@ -2,10 +2,9 @@ export default class ActController {
   constructor($state, $cookies, acl, $scope) {
     this.state = $state;
     this.cookies = $cookies;
-    this.scope = $scope;
 
     // mock site list
-    this.scope.actlist = [
+    this.actlist = [
       { name: "site 1", address: "address 1" },
       { name: "site 2", address: "address 2" },
       { name: "site 3", address: "address 3" },

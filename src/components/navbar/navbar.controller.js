@@ -1,10 +1,9 @@
 export default class NavbarController {
-  constructor ($state, $cookies, acl, $scope) {
+  constructor ($state, $cookies, acl) {
     this.state = $state;
     this.cookies = $cookies;
-    this.scope = $scope;
 
-    this.scope.logoSrc = require('../../assets/imgs/4freelogo.png');
+    this.logoSrc = require('../../assets/imgs/4freelogo.png');
     this.isLoggedIn = !!this.cookies.get('status');
   }
 
@@ -14,4 +13,4 @@ export default class NavbarController {
   }
 }
 
-NavbarController.$inject = ['$state', '$cookies', 'acl', '$scope'];
+NavbarController.$inject = ['$state', '$cookies', 'acl'];
