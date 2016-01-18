@@ -1,16 +1,16 @@
-import './activity.less';
+import './attractions.less';
 
 import angular from 'angular';
 import uirouter from 'angular-ui-router';
 
-import routing from './activity.routes';
-import ActController from './activity.controller';
+import routing from './attractions.routes';
+import AttrsController from './attractions.controller';
 import FooterController from '../../../components/footer/footer.controller';
 import NavbarController from '../../../components/navbar/navbar.controller';
 
-export default angular.module('app.activity', [uirouter])
+export default angular.module('app.attractions', [uirouter])
   .config(routing)
-  .controller('ActController', ActController)
+  .controller('AttrsController', AttrsController)
   .controller('NavbarController', NavbarController)
   .controller('FooterController', FooterController)
   .name;

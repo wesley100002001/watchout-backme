@@ -1,4 +1,4 @@
-export default class SiteController {
+export default class SitesController {
   constructor ($state, $cookies, acl, $scope) {
     this.state = $state;
     this.cookies = $cookies;
@@ -18,4 +18,4 @@ export default class SiteController {
   }
 }
 
-SiteController.$inject = ['$state', '$cookies', 'acl'];
+SitesController.$inject = ['$state', '$cookies', 'acl'];

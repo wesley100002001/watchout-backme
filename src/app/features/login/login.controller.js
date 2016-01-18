@@ -1,5 +1,5 @@
 export default class LoginController {
-  constructor($state, $cookies, acl) {
+  constructor ($state, $cookies, acl) {
     // Mock user
     this.user = {
       username: 'admin',
@@ -9,14 +9,14 @@ export default class LoginController {
     this.cookies = $cookies;
 
     if (acl.checkStatus(this.cookies.get('status'))) {
-      this.state.go('site');
+      this.state.go('sites');
     }
   }
 
-  verifyUser() {
+  verifyUser () {
     if (this.username === this.user.username && this.password === this.user.password) {
       this.cookies.put('status', 'user');
-      this.state.go('site');
+      this.state.go('sites');
     } else {
       this.isLoginFail = true;
     }

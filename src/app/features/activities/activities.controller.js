@@ -1,4 +1,4 @@
-export default class ActController {
+export default class ActsController {
   constructor($state, $cookies, acl, $scope) {
     this.state = $state;
     this.cookies = $cookies;
@@ -18,4 +18,4 @@ export default class ActController {
   }
 }
 
-ActController.$inject = ['$state', '$cookies', 'acl', '$scope'];
+ActsController.$inject = ['$state', '$cookies', 'acl', '$scope'];

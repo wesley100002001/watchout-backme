@@ -1,8 +1,8 @@
 routes.$inject = ['$stateProvider'];
 
 export default function routes($stateProvider) {
-  $stateProvider.state('activity', {
-      url: '/activity',
+  $stateProvider.state('activities', {
+      url: '/activities',
       views: {
         navbar: {
           template: require('../../../components/navbar/navbar.html'),
@@ -10,9 +10,9 @@ export default function routes($stateProvider) {
           controllerAs: 'navbar'
         },
         content: {
-          template: require('./activity.html'),
-          controller: 'ActController',
-          controllerAs: 'act'
+          template: require('./activities.html'),
+          controller: 'ActsController',
+          controllerAs: 'acts'
         },
         footer: {
           template: require('../../../components/footer/footer.html'),
