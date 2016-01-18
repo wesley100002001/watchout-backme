@@ -13,6 +13,11 @@ export default function routes($stateProvider) {
           template: require('./site.html'),
           controller: 'SiteController',
           controllerAs: 'site'
+        },
+        footer: {
+          template: require('../../../components/footer/footer.html'),
+          controller: 'FooterController',
+          controllerAs: 'footer'
         }
       }
     });

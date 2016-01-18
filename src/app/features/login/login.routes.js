@@ -15,6 +15,11 @@ export default function routes($stateProvider) {
           template: require('./login.html'),
           controller: 'LoginController',
           controllerAs: 'login'
+        },
+        footer: {
+          template: require('../../../components/footer/footer.html'),
+          controller: 'FooterController',
+          controllerAs: 'footer'
         }
       }
     });
