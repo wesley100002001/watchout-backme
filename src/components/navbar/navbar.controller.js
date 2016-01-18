@@ -5,6 +5,12 @@ export default class NavbarController {
     this.scope = $scope;
 
     this.scope.logoSrc = require('../../assets/imgs/4freelogo.png');
+    this.isLoggedIn = !!this.cookies.get('status');
+  }
+
+  logout () {
+    this.cookies.remove('status');
+    this.state.go('login');
   }
 }
 

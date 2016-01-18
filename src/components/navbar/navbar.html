@@ -18,6 +18,8 @@
         <li ui-sref-active="active"><a ui-sref="analytic">統計報表</a></li>
         <li ui-sref-active="active"><a ui-sref="vip">本店常客</a></li>
       </ul>
+      <button type="button" class="btn btn-default navbar-btn navbar-right"
+              ng-click="navbar.logout()" ng-show="navbar.isLoggedIn">登出</button>
     </div>
   </div>
 </div>
