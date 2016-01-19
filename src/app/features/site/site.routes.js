@@ -1,6 +1,6 @@
 routes.$inject = ['$stateProvider'];
 
-export default function routes($stateProvider) {
+export default function routes ($stateProvider) {
   $stateProvider.state('site', {
       url: '/site/:siteId',
       views: {

@@ -1,11 +1,69 @@
 <div class="container">
   <div class="row">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h2 class="panel-title">店家資訊</h2>
-      </div>
-      <div class="panel-body">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">{{site.info.name}}</h2>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-6">
+              <label>封面圖片</label><br>
+              <img style="width:500" src="http://vignette1.wikia.nocookie.net/keroro/images/7/77/7036880-yui-aragaki.jpeg/revision/latest?cb=20150811175231">
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="name">名稱</label>
+                <input type="text" id="name" class="form-control" ng-model="site.info.name"></input>
+              </div>
+              <div class="form-group">
+                <label for="address">地址</label>
+                <input type="text" id="address" class="form-control" ng-model="site.info.address"></input>
+              </div>
+              <div class="form-group">
+                <label for="official_site">網址</label>
+                <input type="text" id="official_site" class="form-control" ng-model="site.info.official_site"></input>
+              </div>
+            </div>
 
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="intro">簡介</label>
+                <textarea id="intro" class="form-control" ng-model="site.info.intro"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="email1">E-mail</label>
+                <input type="text" id="email1" class="form-control" ng-model="site.info.email1"></input>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="tel1">電話</label>
+                <input type="text" id="tel1" class="form-control" ng-model="site.info.tel1"></input>
+              </div>
+              <div class="form-group">
+                <label for="tel2">手機</label>
+                <input type="text" id="tel2" class="form-control" ng-model="site.info.tel2"></input>
+              </div>
+              <div class="form-group">
+                <label for="category">類型</label>
+                <select id="category" class="form-control">
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button class="btn btn-info">確定</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
