@@ -12,7 +12,8 @@ import login from './app/features/login';
 import routing from './app.config';
 import site from './app/features/site';
 import sites from './app/features/sites';
+import vips from './app/features/vips';
 
 angular.module('app', [uirouter, ngCookies, advertisements, activities,
-      attractions, coupons, login, site, sites])
+      attractions, coupons, login, site, sites, vips])
   .config(routing);
