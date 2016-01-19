@@ -1,10 +1,10 @@
-export default class AttrsController {
+export default class CouponsController {
   constructor($state, $cookies, acl, $scope) {
     this.state = $state;
     this.cookies = $cookies;
 
     // mock site list
-    this.attrlist = [
+    this.list = [
       { name: "site 1", address: "address 1" },
       { name: "site 2", address: "address 2" },
       { name: "site 3", address: "address 3" },
@@ -18,4 +18,4 @@ export default class AttrsController {
   }
 }
 
-AttrsController.$inject = ['$state', '$cookies', 'acl', '$scope'];
+CouponsController.$inject = ['$state', '$cookies', 'acl', '$scope'];
