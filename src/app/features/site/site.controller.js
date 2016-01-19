@@ -31,6 +31,7 @@ export default class SiteController {
       zip: "111"
     };
 
+    this.cover = require('../../../assets/imgs/default-site-cover.jpg');
   }
 }
 
