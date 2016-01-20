@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">{{attr.info.name}}</h2>
+        </div>
+        <div class="panel-body">
+          <div class="form-group text-center">
+            <label>封面圖片（450 x 300）</label><br>
+            <img ng-src="{{attr.cover}}">
+          </div>
+          <div class="row vertical-align">
+            <div class="col-md-8 col-sm-8">
+              <div class="form-group">
+                <label for="name">名稱</label>
+                <input type="text" id="name" class="form-control" ng-model="attr.info.name"></input>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              Error Msg
+            </div>
+          </div>
+          <div class="row vertical-align">
+            <div class="col-md-8 col-sm-8">
+              <div class="form-group">
+                <label for="intro">簡介</label>
+                <textarea id="intro" class="form-control" rows="4" ng-model="attr.info.intro"></textarea>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              Error Msg
+            </div>
+          </div>
+          <div class="row vertical-align">
+            <div class="col-md-8 col-sm-8">
+              <div class="form-group">
+                <label for="address">地址</label>
+                <input type="text" id="address" class="form-control" ng-model="attr.info.address"></input>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              Error Msg
+            </div>
+          </div>
+          <div class="row vertical-align">
+            <div class="col-md-8 col-sm-8">
+              <div class="form-group">
+                <label for="url">網址</label>
+                <input type="text" id="url" class="form-control" ng-model="attr.info.url"></input>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              Error Msg
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-info">確定</button>
+      </div>
+    </div>
+  </div>
+</div>

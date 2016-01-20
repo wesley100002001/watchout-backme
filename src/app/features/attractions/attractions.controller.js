@@ -4,7 +4,7 @@ export default class AttrsController {
     this.cookies = $cookies;
 
     // mock site list
-    this.attrlist = [
+    this.list = [
       { name: "site 1", address: "address 1" },
       { name: "site 2", address: "address 2" },
       { name: "site 3", address: "address 3" },
