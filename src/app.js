@@ -6,6 +6,7 @@ import ngCookies from 'angular-cookies';
 
 import activity from './app/features/activity';
 import activities from './app/features/activities';
+import advertisement from './app/features/advertisement';
 import advertisements from './app/features/advertisements';
 import attraction from './app/features/attraction';
 import attractions from './app/features/attractions';
@@ -17,7 +18,7 @@ import site from './app/features/site';
 import sites from './app/features/sites';
 import vips from './app/features/vips';
 
-angular.module('app', [uirouter, ngCookies, advertisements, activity,
-      activities, attraction, attractions, coupon, coupons, login, site, sites,
-      vips])
+angular.module('app', [uirouter, ngCookies, advertisement, advertisements,
+      activity, activities, attraction, attractions, coupon, coupons, login,
+      site, sites, vips])
   .config(routing);

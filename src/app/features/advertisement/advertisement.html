@@ -1,0 +1,119 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">{{ad.info.title}}</h2>
+        </div>
+        <div class="panel-body">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">封面圖片<br>450x300</label>
+              <img class="col-sm-6" ng-src="{{ad.cover}}">
+            </div>
+            <div class="form-group">
+              <label for="title" class="col-sm-2 control-label">名稱</label>
+              <div class="col-sm-6">
+                <input type="text" id="title" class="form-control" ng-model="ad.info.title"></input>
+              </div>
+              <div class="col-sm-4">
+                Error Msg
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="intro" class="col-sm-2 control-label">簡介</label>
+              <div class="col-sm-6">
+                <textarea id="intro" class="form-control" rows="4" ng-model="ad.info.intro"></textarea>
+              </div>
+              <div class="col-sm-4">
+                Error Msg
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="category" class="col-sm-2 control-label">類型</label>
+              <div class="col-sm-6">
+                <select id="category" class="form-control">
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+                </select>
+              </div>
+              <div class="col-sm-4">
+                Error Msg
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="url" class="col-sm-2 control-label">網址</label>
+              <div class="col-sm-6">
+                <input type="text" id="url" class="form-control" ng-model="ad.info.url"></input>
+              </div>
+              <div class="col-sm-4">
+                Error Msg
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="start_time" class="col-sm-2 control-label">投放期間</label>
+              <div class="col-sm-3">
+                <p class="input-group">
+                  <input type="text" name="start_time" class="form-control"
+                         uib-datepicker-popup="yyyy/MM/dd" ng-model="dt"
+                         is-open="popup1.opened" min-date="minDate" max-date="maxDate"
+                         datepicker-options="dateOptions"
+                         date-disabled="disabled(date, mode)"
+                         ng-required="true" close-text="Close"
+                         alt-input-formats="altInputFormats" />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </p>
+              </div>
+              <div class="col-sm-3">
+                <p class="input-group">
+                  <input type="text" name="end_time" class="form-control"
+                         uib-datepicker-popup="yyyy/MM/dd" ng-model="dt"
+                         is-open="popup1.opened" min-date="minDate" max-date="maxDate"
+                         datepicker-options="dateOptions"
+                         date-disabled="disabled(date, mode)"
+                         ng-required="true" close-text="Close"
+                         alt-input-formats="altInputFormats" />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </p>
+              </div>
+              <div class="col-sm-4">
+                Error Msg
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="category" class="col-sm-2 control-label">投放區域</label>
+              <div class="col-sm-3">
+                <select id="area_first" class="form-control">
+                  <option value="volvo">台灣全區</option>
+                  <option value="saab">台北市</option>
+                  <option value="mercedes">新北市</option>
+                  <option value="audi">桃園市</option>
+                </select>
+              </div>
+              <div class="col-sm-3">
+                <select id="area_second" class="form-control">
+                  <option value="volvo">全區</option>
+                  <option value="saab">信義區</option>
+                  <option value="mercedes">中正區</option>
+                  <option value="audi">大同區</option>
+                </select>
+              </div>
+              <div class="col-sm-4">
+                Error Msg
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-info">確定</button>
+      </div>
+    </div>
+  </div>
+</div>
