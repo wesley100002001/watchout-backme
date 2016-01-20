@@ -1,5 +1,5 @@
 export default class ActController {
-  constructor () {
+  constructor ($state, $cookies, acl) {
     this.info = {
       address: "新竹縣竹北市吳濁流路56號",
       bannerimage: "upload_77bf23d2edcf2a357478c1cdcf6b924d.jpeg",
@@ -24,6 +24,9 @@ export default class ActController {
     }
     this.cardCover = require('../../../assets/imgs/default-activity-cover.jpg');
     this.infoCover = require('../../../assets/imgs/mock-700x300.jpg');
+    if (!acl.checkStatus($cookies.get('status'))) {
+      $state.go('login');
+    }
   }
 }
 
