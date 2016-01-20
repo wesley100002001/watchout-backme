@@ -1,0 +1,126 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">{{act.info.name}}</h2>
+        </div>
+        <div class="panel-body">
+          <div class="form-group text-center">
+            <label>封面圖片（700 x 300）</label><br>
+            <img ng-src="{{act.infoCover}}">
+          </div>
+          <div class="form-group text-center">
+            <label>封面圖片（450 x 300）</label><br>
+            <img ng-src="{{act.cardCover}}">
+          </div>
+          <div class="row vertical-align">
+            <div class="col-md-8 col-sm-8">
+              <div class="form-group">
+                <label for="name">名稱</label>
+                <input type="text" id="name" class="form-control" ng-model="act.info.name"></input>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              Error Msg
+            </div>
+          </div>
+          <div class="row vertical-align">
+            <div class="col-md-8 col-sm-8">
+              <div class="form-group">
+                <label for="intro">簡介</label>
+                <textarea id="intro" class="form-control" rows="4" ng-model="act.info.intro"></textarea>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              Error Msg
+            </div>
+          </div>
+          <div class="row vertical-align">
+            <div class="col-md-8 col-sm-8">
+              <div class="form-group">
+                <label for="other">其它資訊</label>
+                <textarea id="other" class="form-control" rows="4" ng-model="act.info.other"></textarea>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              Error Msg
+            </div>
+          </div>
+          <div class="row vertical-align">
+            <div class="col-md-8 col-sm-8">
+              <div class="form-group">
+                <label for="address">地址</label>
+                <input type="text" id="address" class="form-control" ng-model="act.info.address"></input>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              Error Msg
+            </div>
+          </div>
+          <div class="row vertical-align">
+            <div class="col-md-8 col-sm-8">
+              <div class="form-group">
+                <label for="url">網址</label>
+                <input type="text" id="url" class="form-control" ng-model="act.info.url"></input>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              Error Msg
+            </div>
+          </div>
+          <div class="row vertical-align">
+            <div class="col-md-8 col-sm-8">
+              <div class="form-group">
+                <label for="start_time">開始日期</label>
+                <p class="input-group">
+                  <input type="text" name="end_time" class="form-control"
+                         uib-datepicker-popup="yyyy/MM/dd" ng-model="dt"
+                         is-open="popup1.opened" min-date="minDate" max-date="maxDate"
+                         datepicker-options="dateOptions"
+                         date-disabled="disabled(date, mode)"
+                         ng-required="true" close-text="Close"
+                         alt-input-formats="altInputFormats" />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              Error Msg
+            </div>
+          </div>
+          <div class="row vertical-align">
+            <div class="col-md-8 col-sm-8">
+              <div class="form-group">
+                <label for="end_time">結束日期</label>
+                <p class="input-group">
+                  <input type="text" name="end_time" class="form-control"
+                         uib-datepicker-popup="yyyy/MM/dd" ng-model="dt"
+                         is-open="popup1.opened" min-date="minDate" max-date="maxDate"
+                         datepicker-options="dateOptions"
+                         date-disabled="disabled(date, mode)"
+                         ng-required="true" close-text="Close"
+                         alt-input-formats="altInputFormats" />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              Error Msg
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-info">確定</button>
+      </div>
+    </div>
+  </div>
+</div>
