@@ -32,6 +32,9 @@ export default class SiteController {
     };
 
     this.cover = require('../../../assets/imgs/default-site-cover.jpg');
+    if (!acl.checkStatus(this.cookies.get('status'))) {
+      this.state.go('login');
+    }
   }
 }
 
