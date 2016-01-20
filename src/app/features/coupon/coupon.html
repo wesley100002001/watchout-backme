@@ -8,66 +8,64 @@
           <h2 class="panel-title">{{coupon.info.name}}</h2>
         </div>
         <div class="panel-body">
-          <div class="form-group text-center">
-            <label>封面圖片（450 x 300）</label><br>
-            <img ng-src="{{coupon.cover}}">
-          </div>
-          <div class="row vertical-align">
-            <div class="col-md-8 col-sm-8 form-group">
-              <label for="name">名稱</label>
-              <input type="text" id="name" class="form-control" ng-model="coupon.info.name"></input>
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">封面圖片<br>450x300</label>
+              <img class="col-sm-6" ng-src="{{coupon.cover}}">
             </div>
-            <div class="col-md-4 col-sm-4">
-              Error Msg
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">名稱</label>
+              <div class="col-sm-6">
+                <input type="text" id="name" class="form-control" ng-model="coupon.info.name"></input>
+              </div>
+              <div class="col-sm-4">
+                Error Msg
+              </div>
             </div>
-          </div>
-          <div class="row vertical-align">
-            <div class="col-md-8 col-sm-8 form-group">
-              <label for="intro">詳細內容</label>
-              <textarea id="intro" class="form-control" rows="4" ng-model="coupon.info.intro"></textarea>
+            <div class="form-group">
+              <label for="intro" class="col-sm-2 control-label">詳細內容</label>
+              <div class="col-sm-6">
+                <textarea id="intro" class="form-control" rows="4" ng-model="coupon.info.intro"></textarea>
+              </div>
+              <div class="col-sm-4">
+                Error Msg
+              </div>
             </div>
-            <div class="col-md-4 col-sm-4">
-              Error Msg
+            <div class="form-group">
+              <label for="start_time" class="col-sm-2 control-label">優惠期間</label>
+              <div class="col-sm-3">
+                <p class="input-group">
+                  <input type="text" name="start_time" class="form-control"
+                         uib-datepicker-popup="yyyy/MM/dd" ng-model="dt"
+                         is-open="popup1.opened" min-date="minDate" max-date="maxDate"
+                         datepicker-options="dateOptions"
+                         date-disabled="disabled(date, mode)"
+                         ng-required="true" close-text="Close"
+                         alt-input-formats="altInputFormats" />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </p>
+              </div>
+              <div class="col-sm-3">
+                <p class="input-group">
+                  <input type="text" name="end_time" class="form-control"
+                         uib-datepicker-popup="yyyy/MM/dd" ng-model="dt"
+                         is-open="popup1.opened" min-date="minDate" max-date="maxDate"
+                         datepicker-options="dateOptions"
+                         date-disabled="disabled(date, mode)"
+                         ng-required="true" close-text="Close"
+                         alt-input-formats="altInputFormats" />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </p>
+              </div>
+              <div class="col-sm-4">
+                Error Msg
+              </div>
             </div>
-          </div>
-          <div class="row vertical-align">
-            <div class="col-md-4 col-sm-4 form-group">
-              <label for="start_time">開始日期</label>
-              <p class="input-group">
-                <input type="text" name="end_time" class="form-control"
-                       uib-datepicker-popup="yyyy/MM/dd" ng-model="dt"
-                       is-open="popup1.opened" min-date="minDate" max-date="maxDate"
-                       datepicker-options="dateOptions"
-                       date-disabled="disabled(date, mode)"
-                       ng-required="true" close-text="Close"
-                       alt-input-formats="altInputFormats" />
-                <span class="input-group-btn">
-                  <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-                </span>
-              </p>
-            </div>
-            <div class="col-md-2 col-sm-2">
-              Error Msg
-            </div>
-            <div class="col-md-4 col-sm-4 form-group">
-              <label for="end_time">結束日期</label>
-              <p class="input-group">
-                <input type="text" name="end_time" class="form-control"
-                       uib-datepicker-popup="yyyy/MM/dd" ng-model="dt"
-                       is-open="popup1.opened" min-date="minDate" max-date="maxDate"
-                       datepicker-options="dateOptions"
-                       date-disabled="disabled(date, mode)"
-                       ng-required="true" close-text="Close"
-                       alt-input-formats="altInputFormats" />
-                <span class="input-group-btn">
-                  <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-                </span>
-              </p>
-            </div>
-            <div class="col-md-2 col-sm-2">
-              Error Msg
-            </div>
-          </div>
+          </form>
         </div>
       </div>
       <div class="text-center">
