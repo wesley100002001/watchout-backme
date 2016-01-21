@@ -1,21 +1,20 @@
 export default class AttrsController {
-  constructor($state, $cookies, acl, $scope) {
-    this.state = $state;
-    this.cookies = $cookies;
-
-    // mock site list
-    this.list = [
-      { id: '111', name: "site 1", address: "address 1" },
-      { id: '222', name: "site 2", address: "address 2" },
-      { id: '333', name: "site 3", address: "address 3" },
-      { id: '444', name: "site 4", address: "address 4" },
-      { id: '555', name: "site 5", address: "address 5" }
-    ];
+  constructor($state, $cookies, acl, $http) {
+    var scope = this;
+    scope.state = $state;
+    scope.cookies = $cookies;
 
     if (!acl.checkStatus(this.cookies.get('status'))) {
       this.state.go('login');
     }
+
+    $http({
+      method: 'GET',
+      url: 'http://localhost:5000/dashboard/api/v1/attractions/'
+    }).then(function (response) {
+      scope.list = response.data.attractions;
+    }, function (response) {});
   }
 }
 
-AttrsController.$inject = ['$state', '$cookies', 'acl', '$scope'];
+AttrsController.$inject = ['$state', '$cookies', 'acl', '$http'];
