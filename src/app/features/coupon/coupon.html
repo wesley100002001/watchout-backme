@@ -36,28 +36,30 @@
               <div class="col-sm-3">
                 <p class="input-group">
                   <input type="text" name="start_time" class="form-control"
-                         uib-datepicker-popup="yyyy/MM/dd" ng-model="dt"
-                         is-open="popup1.opened" min-date="minDate" max-date="maxDate"
-                         datepicker-options="dateOptions"
-                         date-disabled="disabled(date, mode)"
+                         uib-datepicker-popup="yyyy/MM/dd"
+                         ng-model="coupon.info.start_time"
+                         is-open="coupon.startOpened"
+                         max-date="coupon.timeOption.max"
+                         datepicker-options="coupon.dateOptions"
                          ng-required="true" close-text="Close"
-                         alt-input-formats="altInputFormats" />
+                         alt-input-formats="coupon.altInputFormats" />
                   <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    <button type="button" class="btn btn-default" ng-click="coupon.startOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
                   </span>
                 </p>
               </div>
               <div class="col-sm-3">
                 <p class="input-group">
                   <input type="text" name="end_time" class="form-control"
-                         uib-datepicker-popup="yyyy/MM/dd" ng-model="dt"
-                         is-open="popup1.opened" min-date="minDate" max-date="maxDate"
-                         datepicker-options="dateOptions"
-                         date-disabled="disabled(date, mode)"
+                         uib-datepicker-popup="yyyy/MM/dd"
+                         ng-model="coupon.info.end_time"
+                         is-open="coupon.endOpened"
+                         max-date="coupon.timeOption.max"
+                         datepicker-options="coupon.dateOptions"
                          ng-required="true" close-text="Close"
-                         alt-input-formats="altInputFormats" />
+                         alt-input-formats="coupon.altInputFormats" />
                   <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    <button type="button" class="btn btn-default" ng-click="coupon.endOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
                   </span>
                 </p>
               </div>

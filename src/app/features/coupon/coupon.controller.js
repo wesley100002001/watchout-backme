@@ -1,8 +1,13 @@
 export default class CouponController {
   constructor ($state, $cookies, acl) {
+    if (!acl.checkStatus($cookies.get('status'))) {
+      $state.go('login');
+    }
+    var scope = this;
+    this.cover = require('../../../assets/imgs/default-coupon-cover.jpg');
     this.info = {
       click: 0,
-      end_time: "2015-10-15T16:00:00Z",
+      end_time: new Date("2015-10-15"),
       end_time_render: "2015-10-15",
       id: "560ce1c1996b780001000003",
       intro: "牛排滿 200 送 30牛排滿 200 送 30牛排滿 200 送 30",
@@ -16,15 +21,30 @@ export default class CouponController {
         }
       },
       site_id: undefined,
-      start_time: "2015-10-01",
+      start_time: new Date("2015-10-01"),
       status: "normal",
       view: 0
     }
-    this.cover = require('../../../assets/imgs/default-coupon-cover.jpg');
 
-    if (!acl.checkStatus($cookies.get('status'))) {
-      $state.go('login');
-    }
+    // Datepicker options
+    scope.startOpened = false;
+    scope.endOpened = false;
+    scope.timeOption = {
+        max: new Date()
+    };
+    scope.dateOptions = {
+      formatYear: 'yy',
+      startingDay: 1
+    };
+    scope.altInputFormats = ['M!/d!/yyyy'];
+  }
+
+  startOpen () {
+    this.startOpened = !this.startOpened;
+  }
+
+  endOpen () {
+    this.endOpened = !this.endOpened;
   }
 }
 
