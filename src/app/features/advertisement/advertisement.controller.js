@@ -1,5 +1,10 @@
 export default class AdController {
   constructor ($state, $cookies, acl) {
+    if (!acl.checkStatus($cookies.get('status'))) {
+      $state.go('login');
+    }
+    var scope = this;
+    this.cover = require('../../../assets/imgs/mock-default-advertisement-cover.jpg');
     this.info = {
       CPM: 0,
       asset: "upload_bcf8946c69d2ca48a5e87a2bc11a8947.jpeg",
@@ -11,7 +16,10 @@ export default class AdController {
       mime: "image/jpeg",
       owner: "54de1401553019c5dc693100",
       price: 0,
-      schedules: [],
+      schedules: [{
+        start_time: new Date('2015-01-01'),
+        end_time: new Date('2016-01-01')
+      }],
       status: "normal",
       tags: [],
       title: "Yui Aragaki",
@@ -20,10 +28,14 @@ export default class AdController {
       view: 0,
       views: 57
     }
-    this.cover = require('../../../assets/imgs/mock-default-advertisement-cover.jpg');
-    if (!acl.checkStatus($cookies.get('status'))) {
-      $state.go('login');
-    }
+  }
+
+  startOpen () {
+    this.startOpened = !this.startOpened;
+  }
+
+  endOpen () {
+    this.endOpened = !this.endOpened;
   }
 }
 

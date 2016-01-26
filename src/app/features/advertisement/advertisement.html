@@ -57,28 +57,30 @@
               <div class="col-sm-3">
                 <p class="input-group">
                   <input type="text" name="start_time" class="form-control"
-                         uib-datepicker-popup="yyyy/MM/dd" ng-model="dt"
-                         is-open="popup1.opened" min-date="minDate" max-date="maxDate"
-                         datepicker-options="dateOptions"
-                         date-disabled="disabled(date, mode)"
+                         uib-datepicker-popup="yyyy/MM/dd"
+                         ng-model="ad.info.schedules[0].start_time"
+                         is-open="ad.startOpened"
+                         max-date="ad.timeOption.max"
+                         datepicker-options="ad.dateOptions"
                          ng-required="true" close-text="Close"
-                         alt-input-formats="altInputFormats" />
+                         alt-input-formats="ad.altInputFormats" />
                   <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    <button type="button" class="btn btn-default" ng-click="ad.startOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
                   </span>
                 </p>
               </div>
               <div class="col-sm-3">
                 <p class="input-group">
                   <input type="text" name="end_time" class="form-control"
-                         uib-datepicker-popup="yyyy/MM/dd" ng-model="dt"
-                         is-open="popup1.opened" min-date="minDate" max-date="maxDate"
-                         datepicker-options="dateOptions"
-                         date-disabled="disabled(date, mode)"
+                         uib-datepicker-popup="yyyy/MM/dd"
+                         ng-model="ad.info.schedules[0].end_time"
+                         is-open="ad.endOpened"
+                         max-date="ad.timeOption.max"
+                         datepicker-options="ad.dateOptions"
                          ng-required="true" close-text="Close"
-                         alt-input-formats="altInputFormats" />
+                         alt-input-formats="ad.altInputFormats" />
                   <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    <button type="button" class="btn btn-default" ng-click="ad.endOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
                   </span>
                 </p>
               </div>
