@@ -16,19 +16,30 @@
             <div class="form-group">
               <label for="name" class="col-sm-2 control-label">名稱</label>
               <div class="col-sm-6">
-                <input type="text" id="name" class="form-control" ng-model="coupon.info.name"></input>
+                <input type="text" id="name" class="form-control"
+                       ng-model="coupon.info.name" ng-maxlength="40"
+                       placeholder="請輸入優惠名稱"
+                       autocomplete="off" required>
+                </input>
               </div>
-              <div class="col-sm-4">
-                Error Msg
+              <div class="col-sm-4 text-danger">
+                <i class="glyphicon glyphicon-exclamation-sign"></i>
+                需輸入優惠名稱
               </div>
             </div>
             <div class="form-group">
               <label for="intro" class="col-sm-2 control-label">詳細內容</label>
               <div class="col-sm-6">
-                <textarea id="intro" class="form-control" rows="4" ng-model="coupon.info.intro"></textarea>
+                <textarea id="intro" class="form-control" rows="4"
+                          ng-model="coupon.info.intro"
+                          ng-minlength="20" ng-maxlength="1000"
+                          placeholder="請輸入優惠詳細內容"
+                          autocomplete="off" required>
+                </textarea>
               </div>
-              <div class="col-sm-4">
-                Error Msg
+              <div class="col-sm-4 text-danger">
+                <i class="glyphicon glyphicon-exclamation-sign"></i>
+                需輸入詳細內容
               </div>
             </div>
             <div class="form-group">
@@ -63,8 +74,9 @@
                   </span>
                 </p>
               </div>
-              <div class="col-sm-4">
-                Error Msg
+              <div class="col-sm-4 text-danger">
+                <i class="glyphicon glyphicon-exclamation-sign"></i>
+                優惠期間有誤，時間需為一年內
               </div>
             </div>
           </form>

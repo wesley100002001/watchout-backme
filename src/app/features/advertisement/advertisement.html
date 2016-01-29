@@ -12,21 +12,32 @@
               <img class="col-sm-6" ng-src="{{ad.cover}}">
             </div>
             <div class="form-group">
-              <label for="title" class="col-sm-2 control-label">名稱</label>
+              <label for="title" class="col-sm-2 control-label">標題</label>
               <div class="col-sm-6">
-                <input type="text" id="title" class="form-control" ng-model="ad.info.title"></input>
+                <input type="text" id="title" class="form-control"
+                       ng-model="ad.info.title" ng-maxlength="40"
+                       placeholder="請輸入廣告標題"
+                       autocomplete="off" required>
+                </input>
               </div>
-              <div class="col-sm-4">
-                Error Msg
+              <div class="col-sm-4 text-danger">
+                <i class="glyphicon glyphicon-exclamation-sign"></i>
+                需輸入廣告標題，40字以下
               </div>
             </div>
             <div class="form-group">
               <label for="intro" class="col-sm-2 control-label">簡介</label>
               <div class="col-sm-6">
-                <textarea id="intro" class="form-control" rows="4" ng-model="ad.info.intro"></textarea>
+                <textarea id="intro" class="form-control" rows="4"
+                          ng-model="ad.info.intro"
+                          placeholder="請輸入廣告簡介"
+                          ng-minlength="20" ng-maxlength="1000"
+                          autocomplete="off" required>
+                </textarea>
               </div>
-              <div class="col-sm-4">
-                Error Msg
+              <div class="col-sm-4 text-danger">
+                <i class="glyphicon glyphicon-exclamation-sign"></i>
+                需輸入廣告簡介
               </div>
             </div>
             <div class="form-group">
@@ -39,17 +50,22 @@
                   <option value="audi">Audi</option>
                 </select>
               </div>
-              <div class="col-sm-4">
-                Error Msg
+              <div class="col-sm-4 text-danger">
+                <i class="glyphicon glyphicon-exclamation-sign"></i>
+                需輸入廣告類型
               </div>
             </div>
             <div class="form-group">
-              <label for="url" class="col-sm-2 control-label">網址</label>
+              <label for="url" class="col-sm-2 control-label">連結</label>
               <div class="col-sm-6">
-                <input type="text" id="url" class="form-control" ng-model="ad.info.url"></input>
+                <input type="text" id="url" class="form-control"
+                       ng-model="ad.info.url"
+                       placeholder="請輸入廣告連結"
+                       autocomplete="off" required></input>
               </div>
-              <div class="col-sm-4">
-                Error Msg
+              <div class="col-sm-4 text-danger">
+                <i class="glyphicon glyphicon-exclamation-sign"></i>
+                廣告連結有誤
               </div>
             </div>
             <div class="form-group">
@@ -84,8 +100,9 @@
                   </span>
                 </p>
               </div>
-              <div class="col-sm-4">
-                Error Msg
+              <div class="col-sm-4 text-danger">
+                <i class="glyphicon glyphicon-exclamation-sign"></i>
+                廣告期間不正確，開始時間需早於結束時間，且需為一年之內
               </div>
             </div>
             <div class="form-group">
@@ -106,8 +123,9 @@
                   <option value="audi">大同區</option>
                 </select>
               </div>
-              <div class="col-sm-4">
-                Error Msg
+              <div class="col-sm-4 text-danger">
+                <i class="glyphicon glyphicon-exclamation-sign"></i>
+                需選擇投放區域
               </div>
             </div>
           </form>
