@@ -1,5 +1,5 @@
 export default class AdController {
-  constructor ($state, $cookies, acl) {
+  constructor ($state, $cookies, acl, $scope) {
     if (!acl.checkStatus($cookies.get('status'))) {
       $state.go('login');
     }
@@ -27,7 +27,8 @@ export default class AdController {
       url: "https://wefwefwewefwefwfe",
       view: 0,
       views: 57
-    }
+    };
+
   }
 
   startOpen () {
@@ -39,4 +40,4 @@ export default class AdController {
   }
 }
 
-AdController.$inject = ['$state', '$cookies', 'acl'];
+AdController.$inject = ['$state', '$cookies', 'acl', '$scope'];

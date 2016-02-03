@@ -10,7 +10,8 @@ export default class SitesController {
       method: 'GET',
       url: 'http://localhost:5000/dashboard/api/v1/sites/'
     }).then(function (response) {
-      scope.list = response.data.sites;
+      console.log(response);
+      scope.list = response.data;
     }, function (response) {});
   }
 }

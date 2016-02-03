@@ -1,9 +1,9 @@
 export default class ActController {
-  constructor ($state, $stateParams, $cookies, acl, $http) {
+  constructor ($state, $stateParams, $cookies, acl, $http, $scope) {
     var scope = this;
     scope.cardCover = require('../../../assets/imgs/default-activity-cover.jpg');
     scope.infoCover = require('../../../assets/imgs/mock-700x300.jpg');
-    
+
     if (!acl.checkStatus($cookies.get('status'))) {
       $state.go('login');
     }
@@ -27,6 +27,12 @@ export default class ActController {
       scope.info = response.data.activity;
       scope.info.start_time = new Date(scope.info.start_time);
       scope.info.end_time = new Date(scope.info.end_time);
+      if (!!scope.info.other) {
+        $scope.infoForm.other.$setDirty();
+      }
+      if (!!scope.info.url) {
+        $scope.infoForm.url.$setDirty();
+      }
     }, function (response) {});
   }
 
@@ -39,4 +45,4 @@ export default class ActController {
   }
 }
 
-ActController.$inject = ['$state', '$stateParams', '$cookies', 'acl', '$http'];
+ActController.$inject = ['$state', '$stateParams', '$cookies', 'acl', '$http', '$scope'];

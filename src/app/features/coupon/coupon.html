@@ -8,36 +8,52 @@
           <h2 class="panel-title">{{coupon.info.name}}</h2>
         </div>
         <div class="panel-body">
-          <form class="form-horizontal">
+          <form name="infoForm" class="form-horizontal" novalidate>
             <div class="form-group">
               <label class="col-sm-2 control-label">封面圖片<br>450x300</label>
               <img class="col-sm-6" ng-src="{{coupon.cover}}">
             </div>
             <div class="form-group">
               <label for="name" class="col-sm-2 control-label">名稱</label>
-              <div class="col-sm-6">
-                <input type="text" id="name" class="form-control"
+              <div class="col-sm-6 has-feedback"
+                   ng-class="{'has-success': infoForm.name.$valid,
+                              'has-warning': infoForm.name.$invalid}">
+                <input type="text" id="name" name="name"
+                       class="form-control" placeholder="請輸入優惠名稱"
                        ng-model="coupon.info.name" ng-maxlength="40"
-                       placeholder="請輸入優惠名稱"
                        autocomplete="off" required>
                 </input>
+                <span class="glyphicon form-control-feedback"
+                      ng-class="{'glyphicon-ok': infoForm.name.$valid,
+                                 'glyphicon-remove': infoForm.name.$invalid}"
+                      aria-hidden="true">
+                </span>
               </div>
-              <div class="col-sm-4 text-danger">
+              <div class="col-sm-4 text-danger"
+                   ng-show="infoForm.name.$invalid">
                 <i class="glyphicon glyphicon-exclamation-sign"></i>
                 需輸入優惠名稱
               </div>
             </div>
             <div class="form-group">
               <label for="intro" class="col-sm-2 control-label">詳細內容</label>
-              <div class="col-sm-6">
-                <textarea id="intro" class="form-control" rows="4"
-                          ng-model="coupon.info.intro"
+              <div class="col-sm-6 has-feedback"
+                   ng-class="{'has-success': infoForm.intro.$valid,
+                              'has-warning': infoForm.intro.$invalid}">
+                <textarea id="intro" name="intro" class="form-control"
+                          ng-model="coupon.info.intro" rows="4"
                           ng-minlength="20" ng-maxlength="1000"
                           placeholder="請輸入優惠詳細內容"
                           autocomplete="off" required>
                 </textarea>
+                <span class="glyphicon form-control-feedback"
+                      ng-class="{'glyphicon-ok': infoForm.intro.$valid,
+                                 'glyphicon-remove': infoForm.intro.$invalid}"
+                      aria-hidden="true">
+                </span>
               </div>
-              <div class="col-sm-4 text-danger">
+              <div class="col-sm-4 text-danger"
+                   ng-show="infoForm.intro.$invalid">
                 <i class="glyphicon glyphicon-exclamation-sign"></i>
                 需輸入詳細內容
               </div>

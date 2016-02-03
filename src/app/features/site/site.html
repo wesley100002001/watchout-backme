@@ -6,97 +6,159 @@
           <h2 class="panel-title">{{site.info.name}}</h2>
         </div>
         <div class="panel-body">
-          <form class="form-horizontal">
+          <form name="form" class="form-horizontal" novalidate>
             <div class="form-group">
               <label class="col-sm-2 control-label">封面圖片<br>450x300</label>
               <img class="col-sm-6" ng-src="{{site.cover}}">
             </div>
             <div class="form-group">
               <label for="name" class="col-sm-2 control-label">名稱</label>
-              <div class="col-sm-6">
-                <input type="text" id="name"
+              <div class="col-sm-6 has-feedback"
+                   ng-class="{'has-success': form.name.$valid,
+                              'has-warning': form.name.$invalid}">
+                <input type="text" id="name" name="name"
                        class="form-control" ng-model="site.info.name"
-                       placeholder="請輸入店家名稱" ng-maxlength="40">
+                       placeholder="請輸入店家名稱" ng-maxlength="40"
+                       required>
                 </input>
+                <span class="glyphicon form-control-feedback"
+                      ng-class="{'glyphicon-ok': form.name.$valid,
+                                 'glyphicon-remove': form.name.$invalid}"
+                      aria-hidden="true">
+                </span>
               </div>
-              <div class="col-sm-4 text-danger">
+              <div class="col-sm-4 text-danger"
+                   ng-show="form.name.$invalid">
                 <i class="glyphicon glyphicon-exclamation-sign"></i>
                 需輸入店家名稱，40字以下
               </div>
             </div>
             <div class="form-group">
               <label for="intro" class="col-sm-2 control-label">簡介</label>
-              <div class="col-sm-6">
-                <textarea id="intro" class="form-control" rows="4"
-                          ng-model="site.info.intro"
+              <div class="col-sm-6 has-feedback"
+                   ng-class="{'has-success': form.intro.$valid,
+                              'has-warning': form.intro.$invalid}">
+                <textarea id="intro" name="intro" class="form-control"
+                          rows="4" ng-model="site.info.intro"
                           ng-minlength="20" ng-maxlength="1000"
-                          placeholder="請輸入店家簡介">
+                          placeholder="請輸入店家簡介" required>
                 </textarea>
+                <span class="glyphicon form-control-feedback"
+                      ng-class="{'glyphicon-ok': form.intro.$valid,
+                                 'glyphicon-remove': form.intro.$invalid}"
+                      aria-hidden="true">
+                </span>
               </div>
-              <div class="col-sm-4 text-danger">
+              <div class="col-sm-4 text-danger"
+                   ng-show="form.intro.$invalid">
                 <i class="glyphicon glyphicon-exclamation-sign"></i>
                 需輸入簡介，20字以上，1000字以下
               </div>
             </div>
             <div class="form-group">
               <label for="address" class="col-sm-2 control-label">地址</label>
-              <div class="col-sm-6">
-                <input type="text" id="address" class="form-control"
-                       ng-model="site.info.address"
-                       placeholder="請輸入店家地址">
+              <div class="col-sm-6 has-feedback"
+                   ng-class="{'has-success': form.address.$valid,
+                              'has-warning': form.address.$invalid}">
+                <input type="text" id="address" name="address"
+                       class="form-control" placeholder="請輸入店家地址"
+                       ng-model="site.info.address" required>
                 </input>
+                <span class="glyphicon form-control-feedback"
+                      ng-class="{'glyphicon-ok': form.address.$valid,
+                                 'glyphicon-remove': form.address.$invalid}"
+                      aria-hidden="true">
+                </span>
               </div>
-              <div class="col-sm-4 text-danger">
+              <div class="col-sm-4 text-danger"
+                   ng-show="form.address.$invalid">
                 <i class="glyphicon glyphicon-exclamation-sign"></i>
                 需輸入完整地址
               </div>
             </div>
             <div class="form-group">
               <label for="email1" class="col-sm-2 control-label">E-mail</label>
-              <div class="col-sm-6">
-                <input type="text" id="email1" class="form-control"
-                       ng-model="site.info.email1">
+              <div class="col-sm-6 has-feedback"
+                   ng-class="{'has-success': form.email1.$valid,
+                              'has-warning': form.email1.$invalid}">
+                <input type="text" id="email1" name="email1"
+                       class="form-control" ng-model="site.info.email1"
+                       autocomplete="off" required>
                 </input>
+                <span class="glyphicon form-control-feedback"
+                      ng-class="{'glyphicon-ok': form.email1.$valid,
+                                 'glyphicon-remove': form.email1.$invalid}"
+                      aria-hidden="true">
+                </span>
               </div>
-              <div class="col-sm-4 text-danger">
+              <div class="col-sm-4 text-danger"
+                   ng-show="form.email1.$invalid">
                 <i class="glyphicon glyphicon-exclamation-sign"></i>
                 需輸入有效的 E-mail，以便日後您能收到通知與重設密碼
               </div>
             </div>
             <div class="form-group">
               <label for="tel1" class="col-sm-2 control-label">電話</label>
-              <div class="col-sm-6">
-                <input type="text" id="tel1" class="form-control"
+              <div class="col-sm-6 has-feedback"
+                   ng-class="{'has-success': form.tel1.$valid,
+                              'has-warning': form.tel1.$invalid}">
+                <input type="text" id="tel1" name="tel1" class="form-control"
                        ng-model="site.info.tel1" placeholder="請輸入店家電話"
-                       ng-pattern="/^(\+886)?[0-9\(][0-9\(\) #\-]{1,30}\d$/">
+                       ng-pattern="/^(\+886)?[0-9\(][0-9\(\) #\-]{1,30}\d$/"
+                       required>
                 </input>
+                <span class="glyphicon form-control-feedback"
+                      ng-class="{'glyphicon-ok': form.tel1.$valid,
+                                 'glyphicon-remove': form.tel1.$invalid}"
+                      aria-hidden="true">
+                </span>
               </div>
-              <div class="col-sm-4 text-danger">
+              <div class="col-sm-4 text-danger"
+                   ng-show="form.tel1.$invalid">
                 <i class="glyphicon glyphicon-exclamation-sign"></i>
                 需輸入正確店家電話
               </div>
             </div>
             <div class="form-group">
               <label for="tel2" class="col-sm-2 control-label">手機</label>
-              <div class="col-sm-6">
-                <input type="text" id="tel1" class="form-control"
-                       ng-model="site.info.tel2" placeholder="請輸入手機號碼">
+              <div class="col-sm-6 has-feedback"
+                   ng-class="{'has-success': form.tel2.$valid,
+                              'has-warning': form.tel2.$invalid}">
+                <input type="text" id="tel1" name="tel2"
+                       class="form-control" ng-model="site.info.tel2"
+                       placeholder="請輸入手機號碼" required>
                 </input>
+                <span class="glyphicon form-control-feedback"
+                      ng-class="{'glyphicon-ok': form.tel2.$valid,
+                                 'glyphicon-remove': form.tel2.$invalid}"
+                      aria-hidden="true">
+                </span>
               </div>
-              <div class="col-sm-4 text-danger">
+              <div class="col-sm-4 text-danger"
+                   ng-show="form.tel2.$invalid">
                 <i class="glyphicon glyphicon-exclamation-sign"></i>
                 需輸入完整手機號碼
               </div>
             </div>
             <div class="form-group">
               <label for="official_site" class="col-sm-2 control-label">網址</label>
-              <div class="col-sm-6">
-                <input type="text" id="official_site" class="form-control"
+              <div class="col-sm-6 has-feedback"
+                   ng-class="{'has-success': form.official_site.$valid && !!site.info.official_site,
+                              'has-warning': form.official_site.$invalid}">
+                <input type="text" id="official_site" name="official_site"
+                       class="form-control" placeholder="請輸入店家網址"
                        ng-model="site.info.official_site"
-                       placeholder="請輸入店家網址">
+                       autocomplete="off">
                 </input>
+                <span class="glyphicon form-control-feedback"
+                      ng-class="{'glyphicon-ok': form.official_site.$valid,
+                                 'glyphicon-remove': form.official_site.$invalid}"
+                      aria-hidden="true"
+                      ng-show="form.official_site.$dirty && !!site.info.official_site">
+                </span>
               </div>
-              <div class="col-sm-4 text-danger">
+              <div class="col-sm-4 text-danger"
+                   ng-show="form.official_site.$invalid">
                 <i class="glyphicon glyphicon-exclamation-sign"></i>
                 網址格式不正確
               </div>
@@ -104,14 +166,16 @@
             <div class="form-group">
               <label for="category" class="col-sm-2 control-label">類型</label>
               <div class="col-sm-6">
-                <select id="category" class="form-control">
+                <select id="category" name="category"
+                        class="form-control" ng-model="site.info.category">
                   <option value="volvo">Volvo</option>
                   <option value="saab">Saab</option>
                   <option value="mercedes">Mercedes</option>
                   <option value="audi">Audi</option>
                 </select>
               </div>
-              <div class="col-sm-4 text-danger">
+              <div class="col-sm-4 text-danger"
+                   ng-show="form.category.$invalid">
                 <i class="glyphicon glyphicon-exclamation-sign"></i>
                 請選擇店家類型
               </div>
