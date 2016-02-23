@@ -1,5 +1,5 @@
 export default class ActsController {
-  constructor($state, $cookies, acl, $scope, $http) {
+  constructor ($state, $cookies, acl, $scope, $http, restful) {
     var scope = this;
     this.state = $state;
     this.cookies = $cookies;
@@ -8,13 +8,10 @@ export default class ActsController {
       this.state.go('login');
     }
 
-    $http({
-      method: 'GET',
-      url: 'http://localhost:5000/dashboard/api/v1/activities/'
-    }).then(function success(response) {
+    restful.getActs().then(function (response) {
       scope.list = response.data.activities;
     }, function (response) {});
   }
 }
 
-ActsController.$inject = ['$state', '$cookies', 'acl', '$scope', '$http'];
+ActsController.$inject = ['$state', '$cookies', 'acl', '$scope', '$http', 'restful'];

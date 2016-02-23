@@ -1,5 +1,5 @@
 export default class AttrsController {
-  constructor($state, $cookies, acl, $http) {
+  constructor ($state, $cookies, acl, $http, restful) {
     var scope = this;
     scope.state = $state;
     scope.cookies = $cookies;
@@ -8,13 +8,10 @@ export default class AttrsController {
       this.state.go('login');
     }
 
-    $http({
-      method: 'GET',
-      url: 'http://localhost:5000/dashboard/api/v1/attractions/'
-    }).then(function (response) {
+    restful.getAttrs().then(function (response) {
       scope.list = response.data.attractions;
     }, function (response) {});
   }
 }
 
-AttrsController.$inject = ['$state', '$cookies', 'acl', '$http'];
+AttrsController.$inject = ['$state', '$cookies', 'acl', '$http', 'restful'];
