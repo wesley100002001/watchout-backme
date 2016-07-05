@@ -1,0 +1,62 @@
+<div id="content_wrap">
+  <div id="main" class="inner">
+    <h1>訂單管理</h1>
+    <div id="search_bar">
+      金流單號
+      <input type="text" name="textfield2" id="textfield2" class="input_08" />
+      / 贊助者姓名
+      <input type="text" name="textfield3" id="textfield3" class="input_08" />
+      / 贊助者Email
+      <input type="text" name="textfield" id="textfield" class="input_08" />
+      / 贊助者電話
+      <input type="text" name="textfield4" id="textfield4" class="input_08" />
+      <input type="submit" name="button" id="button" value="搜尋" />
+    </div>
+    <div style="margin:0 0 10px 0;">
+      <input type="submit" name="button9" id="button9" value="全部訂單" />
+      <input type="submit" name="button11" id="button13" value="尚未出貨" />
+      <input type="submit" name="button11" id="button13" value="已出貨" />
+      <input type="submit" name="button7" id="button10" value="付款成功" />
+      <input type="submit" name="button8" id="button11" value="等待付款" />
+      <input type="submit" name="button10" id="button12" value="付款失敗" />
+    </div>
+    <div style="margin:0 0 10px 0;">
+      <input type="submit" name="button2" id="button2" value="匯出未出貨訂單" />
+      <input type="submit" name="button3" id="button3" value="匯出全部訂單" />
+      <input type="submit" name="button2" id="button2" value="匯出未出貨標籤pdf" />
+      <a href="#">其他匯出條件選擇 </a></div>
+    <table width="100%" border="1" cellpadding="5" class="ifree">
+      <tr>
+        <th width="20%">金流單號</th>
+        <th width="10%">贊助者姓名</th>
+        <th width="29%">贊助者Email</th>
+        <th width="12%">付款狀態</th>
+        <th width="13%">出貨狀態</th>
+        <th width="16%">付款時間</th>
+      </tr>
+      <tr ng-repeat="order in orders.list">
+        <td align="center" valign="top"><p><a href="order_content.html">{{order.id}}</a></p></td>
+        <td align="center" valign="top">{{order.sponsor_name}}</td>
+        <td align="center" valign="top">{{order.sponsor_email}}</td>
+        <td align="center" valign="top">{{order.pay}}</td>
+        <td align="center" valign="top">{{order.ship}}</td>
+        <td align="center" valign="top">{{order.pay_time}}</td>
+      </tr>
+    </table>
+    <div id="page">
+      <ul>
+      	<li class="select"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">6</a></li>
+          <li><a href="#">7</a></li>
+          <li><a href="#">8</a></li>
+          <li><a href="#">9</a></li>
+          <li><a href="#">10</a></li>
+          <li class="more"><a href="#">下10筆</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
