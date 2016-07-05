@@ -2,8 +2,6 @@ export default class NavbarController {
   constructor ($state, $cookies, acl) {
     this.state = $state;
     this.cookies = $cookies;
-
-    this.logoSrc = require('../../assets/imgs/4freelogo.png');
     this.isLoggedIn = !!this.cookies.get('status');
   }
 
