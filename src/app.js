@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.css';
 import './style/reset.css';
 import './style/style.css';
 
