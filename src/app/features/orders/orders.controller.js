@@ -14,7 +14,7 @@ export default class OrdersController {
         pay_time: "2016-06-22 00:17:21"
       },
       {
-        id: "146379563061648",
+        id: "146379563061649",
         sponsor_name: "林華芳",
         sponsor_email: "leo0179@yahoo.com.tw",
         pay: "等待",
@@ -22,7 +22,7 @@ export default class OrdersController {
         pay_time: "2016-06-22 00:17:21"
       },
       {
-        id: "146379563061648",
+        id: "146379563061650",
         sponsor_name: "林華芳",
         sponsor_email: "leo0179@yahoo.com.tw",
         pay: "失敗",
@@ -30,7 +30,7 @@ export default class OrdersController {
         pay_time: "2016-06-22 00:17:21"
       },
       {
-        id: "146379563061648",
+        id: "146379563061651",
         sponsor_name: "林華芳",
         sponsor_email: "leo0179@yahoo.com.tw",
         pay: "成功",

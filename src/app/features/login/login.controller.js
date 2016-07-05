@@ -9,14 +9,16 @@ export default class LoginController {
     this.cookies = $cookies;
 
     if (acl.checkStatus(this.cookies.get('status'))) {
-      this.state.go('sites');
+      this.state.go('home');
     }
+
+    this.loginBtnImg = require('../../../assets/imgs/login_btn.gif');
   }
 
   verifyUser () {
     if (this.username === this.user.username && this.password === this.user.password) {
       this.cookies.put('status', 'user');
-      this.state.go('sites');
+      this.state.go('home');
     } else {
       this.isLoginFail = true;
     }

@@ -35,7 +35,8 @@
         <th width="16%">付款時間</th>
       </tr>
       <tr ng-repeat="order in orders.list">
-        <td align="center" valign="top"><p><a href="order_content.html">{{order.id}}</a></p></td>
+
+        <td align="center" valign="top"><p><a ui-sref="order({orderId: '{{order.id}}'})">{{order.id}}</a></p></td>
         <td align="center" valign="top">{{order.sponsor_name}}</td>
         <td align="center" valign="top">{{order.sponsor_email}}</td>
         <td align="center" valign="top">{{order.pay}}</td>
