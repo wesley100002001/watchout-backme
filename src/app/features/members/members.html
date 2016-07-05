@@ -1,0 +1,73 @@
+<div id="content_wrap">
+  <div id="main" class="inner">
+    <h1>贊助者名單管理</h1>
+    <div id="search_bar" class="search_bar_fix">
+    <div id="search_bar_inner">
+      <p>贊助者姓名：
+        <input type="text" name="textfield" id="textfield" class="input_08" />
+        　贊助者email：
+        <input type="text" name="textfield3" id="textfield3" class="input_08" />
+      </p>
+      <p> 收件者姓名：
+        <input type="text" name="textfield2" id="textfield2" class="input_08" />
+        　收件者電話：
+        <input type="text" name="textfield6" id="textfield8" class="input_08" />
+        　收件者email：
+        <input type="text" name="textfield4" id="textfield4" class="input_08" />
+        <input type="submit" name="button" id="button" value="搜尋" />
+        <input type="submit" name="button7" id="button9" value="全部" />
+      </p>
+    </div>
+    </div>
+    <div style="margin:0 0 10px 0;">
+      <input type="submit" name="button9" id="button9" value="匯出所有贊助者資料" />
+    </div>
+    <table width="100%" border="1" cellpadding="5" class="ifree">
+      <tr>
+        <th width="14%">贊助者姓名</th>
+        <th width="24%">贊助者email</th>
+        <th width="20%">收件者電話</th>
+        <th width="16%">所在國家</th>
+        <th width="13%">居住城市</th>
+        <th width="13%">郵遞區號</th>
+        </tr>
+      <tr>
+        <th>收件者姓名</th>
+        <th>收件者email</th>
+        <th colspan="4">收件者地址</th>
+        </tr>
+      </table>
+    <table ng-repeat="member in members.list" width="100%" border="1" cellpadding="5" class="ifree">
+      <tr>
+        <th width="13%">{{member.sponsor_name}}</th>
+        <td width="26%">{{member.sponsor_email}}</td>
+        <td width="20%">{{member.receiver_phone}}</td>
+        <td width="23%">{{member.nation}}</td>
+        <td width="10%">{{member.city}}</td>
+        <td width="8%">{{member.postcode}}</td>
+      </tr>
+      <tr>
+        <th>{{member.receiver_name}}</th>
+        <td>{{member.receiver_email}}</td>
+        <td colspan="4">{{member.address}}</td>
+      </tr>
+    </table>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <div id="page">
+      <ul>
+      	<li class="select"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">8</a></li>
+        <li><a href="#">9</a></li>
+        <li><a href="#">10</a></li>
+        <li class="more"><a href="#">下10筆</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
