@@ -1,4 +1,5 @@
 import angular from 'angular';
+import moment from 'moment';
 
 class Restful {
   constructor ($http, $q) {
@@ -62,6 +63,18 @@ class Restful {
     return this.http({
       method: 'GET',
       url: this.mockApi + 'attractions/'
+    });
+  }
+
+  getLastUpdateTime () {
+    return this.$q(function (resolve, reject) {
+      firebase.database().ref('lastupdate/').on('value', function(snapshot) {
+        if (!snapshot.val()) {
+          resolve(moment().format('YYYY 年 MM 月 DD 日 HH:mm:ss'));
+        } else {
+          resolve(snapshot.val());
+        }
+      });
     });
   }
 }
