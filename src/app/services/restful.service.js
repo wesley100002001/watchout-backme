@@ -1,8 +1,9 @@
 import angular from 'angular';
 
 class Restful {
-  constructor ($http) {
+  constructor ($http, $q) {
     this.http = $http;
+    this.$q = $q;
     this.api = 'http://pilot-hi-1.4free.com.tw/api/';
     this.mockApi = 'http://localhost:5000/dashboard/api/v1/';
     var config = {
@@ -36,7 +37,7 @@ class Restful {
   }
 
   getAdmin (account, pwd) {
-    return new Promise(function (resolve, reject) {
+    return this.$q(function (resolve, reject) {
       firebase.database().ref('admin/').on('value', function(snapshot) {
         resolve(snapshot.val().account === account && snapshot.val().password === pwd);
       });
