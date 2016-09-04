@@ -76,8 +76,8 @@ export default class OrdersController {
     this.rs.$broadcast('filterStatus', 'success');
   }
 
-  showPendingOrders () {
-    this.rs.$broadcast('filterStatus', 'pending');
+  showWaitOrders () {
+    this.rs.$broadcast('filterStatus', 'wait');
   }
 
   showFailedOrders () {

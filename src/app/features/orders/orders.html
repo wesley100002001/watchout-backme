@@ -24,9 +24,9 @@
                 'btn-default': orders.searchObj.status !== 'success'}"
               ng-click="orders.showSuccessOrders()">付款成功</button>
       <button type="button" class="btn btn-default"
-              ng-class="{'btn-info': orders.searchObj.status === 'pending',
-                'btn-default': orders.searchObj.status !== 'pending'}"
-              ng-click="orders.showPendingOrders()">等待付款</button>
+              ng-class="{'btn-info': orders.searchObj.status === 'wait',
+                'btn-default': orders.searchObj.status !== 'wait'}"
+              ng-click="orders.showWaitOrders()">等待付款</button>
       <button type="button" class="btn btn-default"
               ng-class="{'btn-info': orders.searchObj.status === 'failed',
                 'btn-default': orders.searchObj.status !== 'failed'}"
