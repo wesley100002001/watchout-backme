@@ -16,8 +16,9 @@ export default class OrderController {
       this.info.receipt_id = this.info.receipt_id ? this.info.receipt_id : '';
       this.info.donated = this.info.donated ? this.info.donated : false;
       this.info.ship_notes = this.info.ship_notes ? this.info.ship_notes : '';
-      this.info.create_time = this.info.create_time ? moment(this.info.create_time).format('YYYY 年 MM 月 DD 日 HH:mm:ss') : '';
-      this.info.pay_time = this.info.pay_time ? moment(this.info.pay_time).format('YYYY 年 MM 月 DD 日 HH:mm:ss') : '';
+      this.info.create_time = this.info.create_time !== '無' ? moment(this.info.create_time).format('YYYY 年 MM 月 DD 日 HH:mm:ss') : '無';
+      this.info.pay_time = this.info.pay_time !== '無' ? moment(this.info.pay_time).format('YYYY 年 MM 月 DD 日 HH:mm:ss') : '無';
+      this.info.refund_time = this.info.refund_time !== '無' ? moment(this.info.refund_time).format('YYYY 年 MM 月 DD 日 HH:mm:ss') : '無';
     });
   }
 
