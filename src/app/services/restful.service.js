@@ -1,17 +1,18 @@
 import angular from 'angular';
 import moment from 'moment';
+import config from '../../../config.json';
 
 class Restful {
   constructor ($http, $q) {
     this.http = $http;
     this.$q = $q;
-    var config = {
-      apiKey: 'AIzaSyCbvS9EsfPK53S6LJrlI0zy3ec0qV3SgMQ',
-      authDomain: 'watchout-backme.firebaseapp.com',
-      databaseURL: 'https://watchout-backme.firebaseio.com',
-      storageBucket: 'watchout-backme.appspot.com',
+    var init = {
+      apiKey: config.firebase.apiKey,
+      authDomain: config.firebase.authDomain,
+      databaseURL: config.firebase.databaseURL,
+      storageBucket: config.firebase.storageBucket,
     };
-    firebase.initializeApp(config);
+    firebase.initializeApp(init);
   }
 
   getAdmin (account, pwd) {
