@@ -15,7 +15,7 @@
           </button>
           <button type="button" class="btn btn-default" filename="all.csv"
                   csv-column-order="orderexport.columnOrder"
-                  csv-header="orderexport.columnHead"
+                  csv-header="orderexport.columnHead" add-bom="true"
                   ng-csv="orderexport.exportAll()">
           匯出全部訂單
           </button>
@@ -93,7 +93,7 @@
         <td colspan="4" class="text-center">
           <button type="button" class="btn btn-default" filename="custom.csv"
                   csv-column-order="orderexport.columnOrder"
-                  csv-header="orderexport.columnHead"
+                  csv-header="orderexport.columnHead" add-bom="true"
                   ng-csv="orderexport.exportCustom()">
           匯出訂單 Excel
           </button>
