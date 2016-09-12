@@ -110,14 +110,19 @@ module.exports = function makeWebpackConfig (options) {
         /pdfmake\.js$/
       ]
     }, {
+      test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: "url-loader?limit=10000&minetype=application/font-woff"
+    }, {
       // ASSET LOADER
       // Reference: https://github.com/webpack/file-loader
       // Copy png, jpg, jpeg, gif, svg, woff, woff2, ttf, eot files to output
       // Rename the file using the asset hash
       // Pass along the updated reference to your code
       // You can add here any file extension you want to get copied to your output
-      test: /\.(woff|woff2|ttf|eot)$/,
-      loader: 'file'
+      // test: /\.(woff|woff2|ttf|eot)$/,
+      // loader: 'file'
+      test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: "file-loader"
     }, {
       test: /\.(png|jpg|jpeg|gif|svg)$/,
       loader: 'url-loader?limit=8192'
