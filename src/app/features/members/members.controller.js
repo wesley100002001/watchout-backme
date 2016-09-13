@@ -11,7 +11,7 @@ export default class MembersController {
     }
 
     this.columnOrder = ['sponsor_name', 'sponsor_email', 'receiver_phone',
-    'nation', 'city', 'postcode', 'receiver_name', 'receiver_email', 'address'];
+    'nation', 'city', 'postcode', 'receiver_name', 'receiver_email', 'receiver_address'];
 
     this.columnHead = ['贊助者姓名', '贊助者email', '收件者電話', '所在國家',
     '居住城市', '郵遞區號', '收件者姓名', '收件者email', '收件者地址'];
