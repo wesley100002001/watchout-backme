@@ -73,15 +73,15 @@ export default class OrdersController {
   }
 
   showSuccessOrders () {
-    this.rs.$broadcast('filterStatus', 'success');
+    this.rs.$broadcast('filterStatus', 'Ｏ');
   }
 
   showWaitOrders () {
-    this.rs.$broadcast('filterStatus', 'wait');
+    this.rs.$broadcast('filterStatus', '△');
   }
 
   showFailedOrders () {
-    this.rs.$broadcast('filterStatus', 'failed');
+    this.rs.$broadcast('filterStatus', 'Ｘ');
   }
 }
 

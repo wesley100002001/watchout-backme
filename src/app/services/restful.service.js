@@ -160,6 +160,13 @@ class Restful {
         var orders = [];
         angular.forEach(snapshot.val(), function (value, key) {
           value.pay_time = value.pay_time === '無' ? '無' : moment(value.pay_time).format('YYYY 年 MM 月 DD 日 HH:mm:ss');
+          if (value.status === 'success') {
+            value.status = 'Ｏ';
+          } else if (value.status === 'failed') {
+            value.status = 'Ｘ';
+          } else {
+            value.status = '△';
+          }
           orders.push(value);
         });
         resolve(orders);
