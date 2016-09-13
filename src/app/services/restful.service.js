@@ -45,7 +45,11 @@ class Restful {
     return this.$q(function (resolve, reject) {
       firebase.database().ref('order/').orderByChild('ship_status')
       .equalTo('notyet').once('value', function (snapshot) {
-        resolve(Object.keys(snapshot.val()).length);
+        if (!!snapshot.val()) {
+          resolve(Object.keys(snapshot.val()).length);
+        } else {
+          resolve(0);
+        }
       });
     });
   }
@@ -54,7 +58,11 @@ class Restful {
     return this.$q(function (resolve, reject) {
       firebase.database().ref('order/').orderByChild('ship_status')
       .equalTo('shipped').once('value', function (snapshot) {
-        resolve(Object.keys(snapshot.val()).length);
+        if (!!snapshot.val()) {
+          resolve(Object.keys(snapshot.val()).length);
+        } else {
+          resolve(0);
+        }
       });
     });
   }
