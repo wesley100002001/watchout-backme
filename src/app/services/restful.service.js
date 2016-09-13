@@ -167,6 +167,9 @@ class Restful {
           } else {
             value.status = '△';
           }
+          if (value.ship_status === 'stateless') {
+            value.ship_status = '--';
+          }
           orders.push(value);
         });
         resolve(orders);

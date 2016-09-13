@@ -62,8 +62,13 @@ export default class OrderImportController {
         create_time: !!order['訂單建立時間'] ? order['訂單建立時間'] : '無',
         pay_time: !!order['付款時間'] ? order['付款時間'] : '無',
         refund_time: !!order['退款時間'] ? order['退款時間'] : '無',
-        actual_amount: !!order['實際單位數量'] ? order['實際單位數量'] : '無'
+        actual_amount: !!order['實際單位數量'] ? order['實際單位數量'] : '無',
+        backme_fee: !!order['貝殼手續費'] ? order['貝殼手續費'] : '無',
+        installment: !!order['幾期付款'] ? order['幾期付款'] : '無'
       };
+      if (normalizedOrder.installment > 0) {
+        normalizedOrder.ship_status = 'stateless';
+      }
       orderlist.push(this.restful.updateOrder(normalizedOrder.id, normalizedOrder));
     });
     this.$q.all(orderlist).then(response => {
