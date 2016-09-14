@@ -185,6 +185,18 @@ class Restful {
     });
   }
 
+  getMembers () {
+    return this.$q(function (resolve, reject) {
+      firebase.database().ref('member/').on('value', function (snapshot) {
+        var members = [];
+        angular.forEach(snapshot.val(), function (value, key) {
+          members.push(value);
+        });
+        resolve(members);
+      });
+    });
+  }
+
   getOrder (orderId) {
     return this.$q(function (resolve, reject) {
       firebase.database().ref('order/' + orderId).on('value', function (snapshot) {
@@ -227,6 +239,15 @@ class Restful {
   updateOrder (orderId, obj) {
     return this.$q(function (resolve, reject) {
       firebase.database().ref('order/' + orderId).update(obj)
+      .then(function () {
+        resolve('Success');
+      })
+    });
+  }
+
+  updateMember (memberId, obj) {
+    return this.$q(function (resolve, reject) {
+      firebase.database().ref('member/' + memberId).update(obj)
       .then(function () {
         resolve('Success');
       })

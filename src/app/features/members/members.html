@@ -13,7 +13,7 @@
     <div class="col-md-6">
       <button type="button" class="btn btn-default pull-right" filename="members.csv"
               csv-column-order="members.columnOrder"
-              csv-header="members.columnHead"
+              csv-header="members.columnHead" add-bom="true"
               ng-csv="members.exportMembers()">
       匯出贊助者名單
       </button>
@@ -21,6 +21,7 @@
     <div>
       <table class="table table-striped table-bordered">
         <tr>
+          <th>贊助者 ID</th>
           <th>贊助者姓名</th>
           <th>贊助者email</th>
           <th>收件者電話</th>
@@ -32,8 +33,9 @@
           <th>收件者地址</th>
         </tr>
         <tr ng-repeat="member in (members.currentMemberList | limitTo: members.pageSize)">
-          <td>{{member.sponsor_name}}</td>
-          <td>{{member.sponsor_email}}</td>
+          <td>{{member.id}}</td>
+          <td>{{member.name}}</td>
+          <td>{{member.email}}</td>
           <td>{{member.receiver_phone}}</td>
           <td>{{member.country}}</td>
           <td>{{member.city}}</td>

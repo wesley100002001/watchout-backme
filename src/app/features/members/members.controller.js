@@ -10,16 +10,16 @@ export default class MembersController {
       this.state.go('login');
     }
 
-    this.columnOrder = ['sponsor_name', 'sponsor_email', 'receiver_phone',
+    this.columnOrder = ['id', 'name', 'email', 'receiver_phone',
     'country', 'city', 'postcode', 'receiver_name', 'receiver_email', 'receiver_address'];
 
-    this.columnHead = ['贊助者姓名', '贊助者email', '收件者電話', '所在國家',
+    this.columnHead = ['贊助者ID', '贊助者姓名', '贊助者email', '收件者電話', '所在國家',
     '居住城市', '郵遞區號', '收件者姓名', '收件者email', '收件者地址'];
 
     var list = [];
-    this.restful.getOrders()
-    .then(orders => {
-      angular.forEach(orders, function (value, key) {
+    this.restful.getMembers()
+    .then(members => {
+      angular.forEach(members, function (value, key) {
         list.push(value);
       });
       scope.list = list;
@@ -53,19 +53,20 @@ export default class MembersController {
   }
 
   exportMembers () {
-    return this.restful.getOrders()
-    .then(orders => {
-      var memberCsv = orders.map(function (order) {
+    return this.restful.getMembers()
+    .then(members => {
+      var memberCsv = members.map(function (member) {
         return {
-          sponsor_name: order.sponsor_name,
-          sponsor_email: order.sponsor_email,
-          receiver_phone: order.receiver_phone,
-          nation: order.nation,
-          city: order.city,
-          postcode: order.postcode,
-          receiver_name: order.receiver_name,
-          receiver_email: order.receiver_email,
-          address: order.address
+          id: member.id,
+          name: member.name,
+          email: member.email,
+          receiver_phone: member.receiver_phone,
+          country: member.country,
+          city: member.city,
+          postcode: member.postcode,
+          receiver_name: member.receiver_name,
+          receiver_email: member.receiver_email,
+          address: member.address
         };
       });
       return memberCsv;

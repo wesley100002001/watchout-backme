@@ -33,6 +33,7 @@ export default class OrderImportController {
   uploadSheet () {
     this.uploading = true;
     var orderlist = [];
+    var memberlist = [];
     this.sheets[this.selectedSheetName].forEach(order => {
       var normalizedOrder = {
         id: order['金流單號'],
@@ -69,9 +70,24 @@ export default class OrderImportController {
       if (normalizedOrder.installment > 0) {
         normalizedOrder.ship_status = 'stateless';
       }
+      var normalizedMember = {
+        receiver_name: normalizedOrder.receiver_name,
+        receiver_email: normalizedOrder.receiver_email,
+        receiver_phone: normalizedOrder.receiver_phone,
+        receiver_address: normalizedOrder.receiver_address,
+        country: normalizedOrder.country,
+        city: normalizedOrder.city,
+        postcode: normalizedOrder.postcode,
+        id: normalizedOrder.sponsor_id,
+        name: normalizedOrder.sponsor_name,
+        email: normalizedOrder.sponsor_email
+      };
       orderlist.push(this.restful.updateOrder(normalizedOrder.id, normalizedOrder));
+      memberlist.push(this.restful.updateMember(normalizedMember.id, normalizedMember));
     });
     this.$q.all(orderlist).then(response => {
+      return this.$q.all(memberlist);
+    }).then(response => {
       return this.restful.updateLastUpdateTime();
     }).then(response => {
       this.uploading = false;
