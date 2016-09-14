@@ -67,8 +67,21 @@ export default class OrderImportController {
         backme_fee: !!order['貝殼手續費'] ? order['貝殼手續費'] : '無',
         installment: !!order['幾期付款'] ? order['幾期付款'] : '無'
       };
+      // FIXME: should use angular translate
       if (normalizedOrder.installment > 0) {
         normalizedOrder.ship_status = 'stateless';
+        normalizedOrder.ship_symbol = '--';
+      }
+      if (normalizedOrder.status === 'success') {
+        normalizedOrder.pay_symbol = 'Ｏ';
+      } else if (normalizedOrder.status === 'failed') {
+        normalizedOrder.pay_symbol = 'Ｘ';
+      } else if (normalizedOrder.status === 'wait') {
+        normalizedOrder.pay_symbol = '△';
+      } else if (normalizedOrder.status === 'recurring') {
+        normalizedOrder.pay_symbol = '定期定額授權單';
+        delete normalizedOrder.ship_symbol;
+        delete normalizedOrder.ship_status;
       }
       var normalizedMember = {
         receiver_name: normalizedOrder.receiver_name,

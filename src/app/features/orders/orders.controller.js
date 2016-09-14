@@ -72,16 +72,24 @@ export default class OrdersController {
     this.rs.$broadcast('filterShipStatus', 'shipped');
   }
 
+  showCanceledOrders () {
+    this.rs.$broadcast('filterShipStatus', 'canceled');
+  }
+
+  showErrorOrders () {
+    this.rs.$broadcast('filterShipStatus', 'error');
+  }
+
   showSuccessOrders () {
-    this.rs.$broadcast('filterStatus', 'Ｏ');
+    this.rs.$broadcast('filterStatus', 'success');
   }
 
   showWaitOrders () {
-    this.rs.$broadcast('filterStatus', '△');
+    this.rs.$broadcast('filterStatus', 'wait');
   }
 
   showFailedOrders () {
-    this.rs.$broadcast('filterStatus', 'Ｘ');
+    this.rs.$broadcast('filterStatus', 'failed');
   }
 }
 

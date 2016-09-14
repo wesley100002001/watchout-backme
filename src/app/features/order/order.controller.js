@@ -11,7 +11,7 @@ export default class OrderController {
     this.restful.getOrder(orderId)
     .then(response => {
       this.info = response;
-      this.info.ship_status = this.info.ship_status ? this.info.ship_status : 'stateless';
+      this.info.ship_status = this.info.ship_status ? this.info.ship_status : 'notyet';
       this.info.ship_id = this.info.ship_id ? this.info.ship_id : '';
       this.info.receipt_id = this.info.receipt_id ? this.info.receipt_id : '';
       this.info.donated = this.info.donated ? this.info.donated : false;
@@ -23,8 +23,18 @@ export default class OrderController {
   }
 
   save () {
+    if (this.info.ship_status === 'shipped') {
+      this.info.ship_symbol = 'Ｏ';
+    } else if (this.info.ship_status === 'notyet') {
+      this.info.ship_symbol = 'Ｘ';
+    } else if (this.info.ship_status === 'canceled' || this.info.ship_status === 'error') {
+      this.info.ship_symbol = '△';
+    } else if (this.info.ship_status === 'stateless') {
+      this.info.ship_symbol = '--';
+    }
     this.restful.updateOrder(this.info.id, {
       ship_status: this.info.ship_status,
+      ship_symbol: this.info.ship_symbol,
       ship_id: this.info.ship_id,
       receipt_id: this.info.receipt_id,
       donated: this.info.donated,
