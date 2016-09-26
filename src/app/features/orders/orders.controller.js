@@ -20,7 +20,7 @@ export default class OrdersController {
       createCurPage();
     });
 
-    this.pageSize = 10;
+    this.pageSize = 25;
     this.maxSize = 10;
     this.currentPage = 1;
     var createCurPage = function () {
