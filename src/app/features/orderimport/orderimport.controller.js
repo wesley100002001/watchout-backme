@@ -11,7 +11,7 @@ export default class OrderImportController {
       this.state.go('login');
     }
 
-    scope.items = [];   //存放資料物件之陣列，一列為一個物件，key為欄名
+    // scope.items = [];   //存放資料物件之陣列，一列為一個物件，key為欄名
     scope.sheets = [];  //工作表 array
   }
 
@@ -23,11 +23,11 @@ export default class OrderImportController {
     this.xlsxReader.readFile(this.excelFile, showPreview, showJSONPreview)
     .then(xlsxData => {
       this.sheets = xlsxData.sheets;
+      // 如果第一筆就是 Worksheet1，那就直接選它
+      if (!!this.sheets['Worksheet1']) {
+        this.selectedSheetName = 'Worksheet1';
+      }
     });
-  }
-
-  updateItems () {
-    this.items = this.sheets[this.selectedSheetName];
   }
 
   uploadSheet () {

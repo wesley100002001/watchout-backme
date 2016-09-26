@@ -10,7 +10,6 @@
       <div class="form-group">
         <label for="importexcel">選擇工作表</label>
         <select class="form-control"
-                ng-change="orderimport.updateItems()"
         	      ng-model="orderimport.selectedSheetName"
                 ng-options="sheetName as sheetName for (sheetName, sheetData) in orderimport.sheets">
           <option value="">-----------</option>
