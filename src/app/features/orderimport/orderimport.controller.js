@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export default class OrderImportController {
   constructor ($state, $cookies, acl, $http, restful, xlsxReader, $q) {
     var scope = this;
@@ -62,6 +64,8 @@ export default class OrderImportController {
         pay_method: !!order['付款方式'] ? order['付款方式'] : '無',
         create_time: !!order['訂單建立時間'] ? order['訂單建立時間'] : '無',
         pay_time: !!order['付款時間'] ? order['付款時間'] : '無',
+        // Since firebase do not support descending order
+        inverse_pay_time: !!order['付款時間'] ? -1 * moment(order['付款時間']).format('X') : 0,
         refund_time: !!order['退款時間'] ? order['退款時間'] : '無',
         actual_amount: !!order['實際單位數量'] ? order['實際單位數量'] : '無',
         backme_fee: !!order['貝殼手續費'] ? order['貝殼手續費'] : '無',

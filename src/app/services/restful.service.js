@@ -175,6 +175,9 @@ class Restful {
           }
           orders.push(value);
         });
+        orders.sort(function (a, b) {
+          return a.inverse_pay_time - b.inverse_pay_time;
+        });
         resolve(orders);
       });
     });

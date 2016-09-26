@@ -17,6 +17,7 @@ export default class OrdersController {
     this.restful.getOrders()
     .then(orders => {
       this.list = orders;
+      console.log(this.list);
       createCurPage();
     });
 
