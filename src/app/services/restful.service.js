@@ -93,6 +93,19 @@ class Restful {
     });
   }
 
+  getWaitPaidAmount () {
+    return this.$q(function (resolve, reject) {
+      firebase.database().ref('order/').orderByChild('status')
+      .equalTo('wait').once('value', function (snapshot) {
+        if (!!snapshot.val()) {
+          resolve(Object.keys(snapshot.val()).length);
+        } else {
+          resolve(0);
+        }
+      });
+    });
+  }
+
   getRecurringPaidAmount () {
     return this.$q(function (resolve, reject) {
       firebase.database().ref('order/').orderByChild('status')

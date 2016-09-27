@@ -6,6 +6,17 @@
         <th colspan="4" class="text-center">上次貝殼放大 Excel 匯入時間：{{home.lastImport}}</th>
       </tr>
       <tr>
+        <th rowspan="2">訂單統計</th>
+        <th>單筆購買</th>
+        <th>定期定額</th>
+        <th></th>
+      </tr>
+      <tr>
+        <td><strong>{{home.single}}</strong></td>
+        <td><strong>{{home.recurring}}</strong></td>
+        <td></td>
+      </tr>
+      <tr>
         <th rowspan="2">付款統計</th>
         <th>付款成功</th>
         <th>等待付款</th>
@@ -13,8 +24,8 @@
       </tr>
       <tr>
         <td><strong>{{home.success}}</strong></td>
+        <td><strong>{{home.wait}}</strong></td>
         <td><strong>{{home.failed}}</strong></td>
-        <td><strong>{{home.recurring}}</strong></td>
       </tr>
       <tr>
         <th rowspan="2">出貨統計</th>
