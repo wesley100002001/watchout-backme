@@ -168,17 +168,20 @@ class Restful {
         var orders = [];
         angular.forEach(snapshot.val(), function (value, key) {
           value.pay_time = value.pay_time === '無' ? '無' : moment(value.pay_time).format('YYYY 年 MM 月 DD 日 HH:mm:ss');
-          // FIXME: should use angular translate
-          if (!value.ship_status) {
-            value.ship_status = 'notyet';
-            value.ship_symbol = 'Ｘ';
-          }
           orders.push(value);
         });
         orders.sort(function (a, b) {
           return a.inverse_pay_time - b.inverse_pay_time;
         });
         resolve(orders);
+      });
+    });
+  }
+
+  getOrdersForImport () {
+    return this.$q(function (resolve, reject) {
+      firebase.database().ref('order/').on('value', function (snapshot) {
+        resolve(snapshot);
       });
     });
   }
