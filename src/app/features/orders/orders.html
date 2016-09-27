@@ -52,6 +52,7 @@
         <th>付款狀態</th>
         <th>出貨狀態</th>
         <th>付款時間</th>
+        <th>出貨</th>
       </tr>
       <tr ng-repeat="order in (orders.currentOrderList | limitTo: orders.pageSize)">
         <td><a ui-sref="order({orderId: '{{order.id}}'})">{{order.id}}</a></td>
@@ -60,6 +61,10 @@
         <td class="text-center">{{order.pay_symbol}}</td>
         <td class="text-center">{{order.ship_symbol}}</td>
         <td>{{order.pay_time}}</td>
+        <td><button type="button" class="btn btn-info"
+                    ng-show="order.ship_status === 'notyet'"
+                    ng-click="orders.shipOrder(order.id)">出貨</button>
+        </td>
       </tr>
     </table>
     <uib-pagination

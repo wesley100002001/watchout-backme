@@ -17,7 +17,6 @@ export default class OrdersController {
     this.restful.getOrders()
     .then(orders => {
       this.list = orders;
-      console.log(this.list);
       createCurPage();
     });
 
@@ -62,6 +61,22 @@ export default class OrdersController {
       scope.searchObj = !!scope.searchObj.status &&
         scope.searchObj.status === request ? {} : { status: request };
       createCurPage();
+    });
+  }
+
+  shipOrder (orderId) {
+    this.restful.updateOrder(orderId, {
+      ship_status: 'shipped',
+      ship_symbol: 'Ｏ'
+    }).then(() => {
+      return this.restful.getOrder(orderId);
+    }).then(response => {
+      this.list.forEach(order => {
+        if (order.id === response.id) {
+          order.ship_status = response.ship_status;
+          order.ship_symbol = response.ship_symbol;
+        }
+      })
     });
   }
 
