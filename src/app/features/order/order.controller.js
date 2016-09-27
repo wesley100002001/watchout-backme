@@ -11,7 +11,6 @@ export default class OrderController {
     this.restful.getOrder(orderId)
     .then(response => {
       this.info = response;
-      this.info.ship_status = this.info.ship_status ? this.info.ship_status : 'notyet';
       this.info.ship_id = this.info.ship_id ? this.info.ship_id : '';
       this.info.receipt_id = this.info.receipt_id ? this.info.receipt_id : '';
       this.info.donated = this.info.donated ? this.info.donated : false;
