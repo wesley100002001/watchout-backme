@@ -12,8 +12,6 @@ export default class OrderImportController {
     if (!acl.checkStatus(this.cookies.get('status'))) {
       this.state.go('login');
     }
-
-    // scope.items = [];   //存放資料物件之陣列，一列為一個物件，key為欄名
     scope.sheets = [];  //工作表 array
   }
 
@@ -33,14 +31,16 @@ export default class OrderImportController {
   }
 
   uploadSheet () {
+    var orderlist = [];
+    var memberlist = [];
     this.uploading = true;
     this.restful.getOrdersForImport()
     .then(orders => {
       this.existOrders = orders;
-      return this.$q(true);
+      return this.$q(function (resolve, reject) {
+        resolve(true);
+      });
     }).then(response => {
-      var orderlist = [];
-      var memberlist = [];
       this.sheets[this.selectedSheetName].forEach(order => {
         var normalizedOrder = {
           id: order['金流單號'],
@@ -78,7 +78,7 @@ export default class OrderImportController {
         };
 
         // 新的才處理 ship_status，原先錯的直接刪掉重來
-        if (!order['金流單號'] in this.existOrders) {
+        if (!(order['金流單號'] in this.existOrders)) {
           normalizedOrder.ship_status = 'notyet';
           normalizedOrder.ship_symbol = 'Ｘ';
           if (normalizedOrder.installment > 0 && normalizedOrder.status === 'recurring') {

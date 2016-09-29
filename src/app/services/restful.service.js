@@ -194,7 +194,7 @@ class Restful {
   getOrdersForImport () {
     return this.$q(function (resolve, reject) {
       firebase.database().ref('order/').on('value', function (snapshot) {
-        resolve(snapshot);
+        resolve(snapshot.val());
       });
     });
   }
