@@ -12,18 +12,20 @@ export default class OrdersController {
 
     if (!acl.checkStatus(this.cookies.get('status'))) {
       this.state.go('login');
+    } else {
+      this.admin = this.cookies.get('status') === 'admin';
     }
 
     this.restful.getOrders()
     .then(orders => {
       this.list = orders;
-      createCurPage();
+      scope.createCurPage();
     });
 
     this.pageSize = 25;
     this.maxSize = 10;
     this.currentPage = 1;
-    var createCurPage = function () {
+    scope.createCurPage = function () {
       scope.currentOrderList =
         $filter('filter')(scope.list, scope.searchObj)
         .slice((scope.currentPage - 1) * scope.pageSize);
@@ -33,7 +35,7 @@ export default class OrdersController {
       return this.currentPage;
     }), function (newVal) {
       if (!!scope.list) {
-        createCurPage();
+        scope.createCurPage();
       }
     });
 
@@ -45,7 +47,7 @@ export default class OrdersController {
         scope.searchObj = {
           $: newVal
         };
-        createCurPage();
+        scope.createCurPage();
       }
     });
 
@@ -53,14 +55,14 @@ export default class OrdersController {
       scope.searchText = '';
       scope.searchObj = !!scope.searchObj.ship_status &&
         scope.searchObj.ship_status === request ? {} : { ship_status: request };
-      createCurPage();
+      scope.createCurPage();
     });
 
     this.rs.$on('filterStatus', function (event, request) {
       scope.searchText = '';
       scope.searchObj = !!scope.searchObj.status &&
         scope.searchObj.status === request ? {} : { status: request };
-      createCurPage();
+      scope.createCurPage();
     });
   }
 
@@ -77,6 +79,16 @@ export default class OrdersController {
           order.ship_symbol = response.ship_symbol;
         }
       })
+    });
+  }
+
+  deleteOrder (orderId) {
+    this.restful.deleteOrder(orderId)
+    .then((response) => {
+      return this.restful.getOrders();
+    }).then(orders => {
+      this.list = orders;
+      this.createCurPage();
     });
   }
 

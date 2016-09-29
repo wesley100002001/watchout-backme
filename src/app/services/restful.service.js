@@ -25,10 +25,6 @@ class Restful {
         } else {
           resolve('unauthorized');
         }
-        // var passed = (snapshot.val().account === account && snapshot.val().password === pwd) ?
-        //   snapshot.val().role : 'unauthorized';
-        // resolve(passed);
-        // resolve(snapshot.val().account === account && snapshot.val().password === pwd);
       });
     });
   }
@@ -265,7 +261,18 @@ class Restful {
       firebase.database().ref('order/' + orderId).update(obj)
       .then(function () {
         resolve('Success');
-      })
+      });
+    });
+  }
+
+  deleteOrder (orderId) {
+    return this.$q(function (resolve, reject) {
+      firebase.database().ref('order/' + orderId).remove()
+      .then(function () {
+        resolve(true);
+      }).catch(function () {
+        resolve(false);
+      });
     });
   }
 

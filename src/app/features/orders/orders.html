@@ -53,6 +53,7 @@
         <th>出貨狀態</th>
         <th>付款時間</th>
         <th>出貨</th>
+        <th ng-show="orders.admin">刪除</th>
       </tr>
       <tr ng-repeat="order in (orders.currentOrderList | limitTo: orders.pageSize)">
         <td><a ui-sref="order({orderId: '{{order.id}}'})">{{order.id}}</a></td>
@@ -64,6 +65,10 @@
         <td><button type="button" class="btn btn-info"
                     ng-show="order.ship_status === 'notyet'"
                     ng-click="orders.shipOrder(order.id)">出貨</button>
+        </td>
+        <td ng-show="orders.admin">
+          <button type="button" class="btn btn-danger"
+                    ng-click="orders.deleteOrder(order.id)">刪除</button>
         </td>
       </tr>
     </table>
