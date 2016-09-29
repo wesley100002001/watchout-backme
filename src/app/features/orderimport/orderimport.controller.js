@@ -78,10 +78,10 @@ export default class OrderImportController {
         };
 
         // 新的才處理 ship_status，原先錯的直接刪掉重來
-        if (!(order['金流單號'] in this.existOrders)) {
+        if (!this.existOrders || !(order['金流單號'] in this.existOrders)) {
           normalizedOrder.ship_status = 'notyet';
           normalizedOrder.ship_symbol = 'Ｘ';
-          if (normalizedOrder.installment > 0 && normalizedOrder.status === 'recurring') {
+          if (normalizedOrder.installment > 0 && normalizedOrder.status !== 'recurring') {
             normalizedOrder.ship_status = 'stateless';
             normalizedOrder.ship_symbol = '--';
           }
