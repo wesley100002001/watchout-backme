@@ -4,7 +4,11 @@ class ACL {
   constructor () {}
 
   checkStatus (cookies) {
-    return cookies === 'user';
+    return cookies === 'user' || cookies === 'admin';
+  }
+
+  checkAdminStatus (cookies) {
+    return cookies === 'admin';
   }
 }
 

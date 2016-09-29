@@ -14,9 +14,9 @@ export default class LoginController {
     var cookies = this.cookies;
     var state = this.state;
     this.restful.getAdmin(this.username, this.password)
-    .then(passed => {
-      if (passed) {
-        cookies.put('status', 'user');
+    .then(authorized => {
+      if (authorized !== 'unauthorized') {
+        cookies.put('status', authorized);
         state.go('home');
       } else {
         this.logging = false;

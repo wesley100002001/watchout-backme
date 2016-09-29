@@ -17,8 +17,18 @@ class Restful {
 
   getAdmin (account, pwd) {
     return this.$q(function (resolve, reject) {
-      firebase.database().ref('admin/').on('value', function (snapshot) {
-        resolve(snapshot.val().account === account && snapshot.val().password === pwd);
+      firebase.database().ref('admin/' + account).on('value', function (snapshot) {
+        if (!!snapshot.val()) {
+          var passed = (snapshot.val().account === account && snapshot.val().password === pwd) ?
+            snapshot.val().role : 'unauthorized';
+          resolve(passed);
+        } else {
+          resolve('unauthorized');
+        }
+        // var passed = (snapshot.val().account === account && snapshot.val().password === pwd) ?
+        //   snapshot.val().role : 'unauthorized';
+        // resolve(passed);
+        // resolve(snapshot.val().account === account && snapshot.val().password === pwd);
       });
     });
   }
