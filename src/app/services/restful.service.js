@@ -29,17 +29,17 @@ class Restful {
     });
   }
 
-  getAdminPwd () {
+  getPwd (account) {
     return this.$q(function (resolve, reject) {
-      firebase.database().ref('admin/').on('value', function (snapshot) {
+      firebase.database().ref('admin/' + account).on('value', function (snapshot) {
         resolve(snapshot.val().password);
       });
     });
   }
 
-  setAdminPwd (pwd) {
+  setPwd (account, pwd) {
     return this.$q(function (resolve, reject) {
-      firebase.database().ref('admin/').update({
+      firebase.database().ref('admin/' + account).update({
         password: pwd
       }).then(function () {
         resolve('Success');

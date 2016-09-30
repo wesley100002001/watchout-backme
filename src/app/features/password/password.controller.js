@@ -12,11 +12,11 @@ export default class PwdController {
   }
 
   changePwd () {
-    if (!!this.oldpwd && !!this.newpwd) {
-      this.restful.getAdminPwd()
+    if (!!this.account && !!this.oldpwd && !!this.newpwd) {
+      this.restful.getPwd(this.account)
       .then(response => {
         if (response === this.oldpwd) {
-          return this.restful.setAdminPwd(this.newpwd)
+          return this.restful.setPwd(this.account, this.newpwd)
         } else {
           alert('舊密碼錯誤，請重新輸入');
           return this.$q(function (resolve, reject) {
