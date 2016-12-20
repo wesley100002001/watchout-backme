@@ -73,19 +73,6 @@ class Restful {
     });
   }
 
-  getSuccessPaidAmount () {
-    return this.$q(function (resolve, reject) {
-      firebase.database().ref('order/').orderByChild('status')
-      .equalTo('success').once('value', function (snapshot) {
-        if (!!snapshot.val()) {
-          resolve(Object.keys(snapshot.val()).length);
-        } else {
-          resolve(0);
-        }
-      });
-    });
-  }
-
   getFailedPaidAmount () {
     return this.$q(function (resolve, reject) {
       firebase.database().ref('order/').orderByChild('status')

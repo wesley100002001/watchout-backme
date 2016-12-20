@@ -15,9 +15,6 @@ export default class HomeController {
       return this.restful.getShippedAmount();
     }).then(ship => {
       this.shipped = ship;
-      return this.restful.getSuccessPaidAmount();
-    }).then(success => {
-      this.success = success;
       return this.restful.getFailedPaidAmount();
     }).then(failed => {
       this.failed = failed;
