@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { orderMustHave } from '../../data/order';
 
 export default class OrderImportController {
   constructor ($state, $cookies, acl, $http, restful, xlsxReader, $q) {
@@ -18,8 +19,8 @@ export default class OrderImportController {
   fileChanged (files) {
     var showPreview = false;        //以表格預覽
     var showJSONPreview = true;     //以json預覽
-    this.sheets = [];   //工作表 array
-    this.excelFile = files[0];        //選擇之excel檔(.xlsx格式)
+    this.sheets = [];               //工作表 array
+    this.excelFile = files[0];      //選擇之excel檔(.xlsx格式)
     this.xlsxReader.readFile(this.excelFile, showPreview, showJSONPreview)
     .then(xlsxData => {
       this.sheets = xlsxData.sheets;
@@ -33,6 +34,7 @@ export default class OrderImportController {
   uploadSheet () {
     var orderlist = [];
     var memberlist = [];
+    var errorOrders = [];
     this.uploading = true;
     this.restful.getOrdersForImport()
     .then(orders => {
@@ -42,6 +44,14 @@ export default class OrderImportController {
       });
     }).then(response => {
       this.sheets[this.selectedSheetName].forEach(order => {
+        // 加入檢查機制，確認所有欄位才匯入
+        var verified = orderMustHave.every(col => {
+          return !!order[col];
+        });
+        if (!verified) {
+          errorOrders.push(order);
+          return;
+        }
         var normalizedOrder = {
           id: order['金流單號'],
           product: !!order['贊助細節'] ? order['贊助細節'] : '無',
@@ -119,15 +129,21 @@ export default class OrderImportController {
         orderlist.push(this.restful.updateOrder(normalizedOrder.id, normalizedOrder));
         memberlist.push(this.restful.updateMember(normalizedMember.id, normalizedMember));
       });
-    });
-
-    this.$q.all(orderlist).then(response => {
+      return this.$q(function (resolve, reject) {
+        resolve(true);
+      });
+    }).then(response => {
+      console.log(errorOrders);
+      return this.$q.all(orderlist);
+    }).then(response => {
       return this.$q.all(memberlist);
     }).then(response => {
       return this.restful.updateLastUpdateTime();
     }).then(response => {
       this.uploading = false;
       alert('同步完成');
+    }).catch(err => {
+      console.log(err);
     });
   }
 }

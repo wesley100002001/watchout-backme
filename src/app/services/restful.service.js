@@ -47,6 +47,19 @@ class Restful {
     });
   }
 
+  getOneTimeAmount () {
+    return this.$q(function (resolve, reject) {
+      firebase.database().ref('order/').orderByChild('monthly')
+      .equalTo(false).once('value', function (snapshot) {
+        if (!!snapshot.val()) {
+          resolve(Object.keys(snapshot.val()).length);
+        } else {
+          resolve(0);
+        }
+      });
+    });
+  }
+
   getUnshippedAmount () {
     return this.$q(function (resolve, reject) {
       firebase.database().ref('order/').orderByChild('ship_status')
