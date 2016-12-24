@@ -24,7 +24,9 @@ export default class HomeController {
       return this.restful.getWaitPaidAmount();
     }).then(wait => {
       this.wait = wait;
-      this.single = this.success - this.recurring;
+      return this.restful.getOneTimeAmount();
+    }).then(oneTime => {
+      this.oneTime = oneTime;
     });
   }
 }
